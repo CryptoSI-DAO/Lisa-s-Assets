@@ -1,0 +1,225 @@
+{
+  "meta": {
+    "date": "2026-05-27",
+    "tao_price": 277.20,
+    "tao_market_cap": 3.03,
+    "block_reward": 0.5,
+    "daily_issuance": 3600,
+    "next_halving": "2029-12-12",
+    "total_subnets": 128
+  },
+  "ecosystems": {
+    "tao": {
+      "name": "TAO Bittensor",
+      "icon": "🌐",
+      "path": "tao",
+      "status": "active",
+      "stats": { "subnets": 128, "scored": 10 }
+    },
+    "eth": {
+      "name": "Ethereum",
+      "icon": "⟠",
+      "path": "eth",
+      "status": "coming",
+      "coming_reason": "DeFi protocols, L2s, and infrastructure projects"
+    },
+    "hype": {
+      "name": "HYPE",
+      "icon": "⚡",
+      "path": "hype",
+      "status": "coming",
+      "coming_reason": "Perpetuals, LPs, and native infrastructure"
+    }
+  },
+  "weights": {
+    "emission": 0.20,
+    "economics": 0.15,
+    "code": 0.10,
+    "hype": 0.10,
+    "oracle": 0.20,
+    "stakeflow": 0.15,
+    "risk": 0.10
+  },
+  "verdicts": {
+    "strong_hold":  { "min": 8.0, "label": "Strong Hold",    "color": "green",  "icon": "🟢" },
+    "research":    { "min": 6.0, "label": "Research Further","color": "blue",   "icon": "🔷" },
+    "watch":       { "min": 4.0, "label": "Watch",          "color": "yellow", "icon": "🟡" },
+    "caution":     { "min": 2.0, "label": "Caution",        "color": "orange", "icon": "🟠" },
+    "avoid":       { "min": 1.0, "label": "Avoid",          "color": "red",    "icon": "🔴" }
+  },
+  "subnets": [
+    {
+      "netuid": 116,
+      "name": "TaoLend",
+      "website": "https://taolend.io",
+      "github": "https://github.com/xpenlab/taolend",
+      "category": "DeFi / Lending",
+      "description": "Decentralized lending protocol for TAO and subnet alpha tokens. Users lend TAO, borrowers collateralize with alpha tokens.",
+      "scores": { "emission": 6, "economics": 5, "code": 4, "hype": 3, "oracle": 7, "stakeflow": 4, "risk": 6 },
+      "details": {
+        "rank": 1, "tao_locked_tao": 89944, "burn_raw": 500,
+        "tao_in_emission_raw": 0, "alpha_in_raw": 0
+      },
+      "bull_case": [
+        "First mover in TAO DeFi — massive untapped market",
+        "128 subnets = 128 potential collateral types",
+        "Natural flywheel: more subnets → more collateral → stronger protocol",
+        "TAO staking derivative market could 10x addressable market"
+      ],
+      "bear_case": [
+        "Subnet alpha collateral could become worthless if subnets die",
+        "Collateral liquidation in volatile markets is untested",
+        "Major DeFi protocols could integrate TAO and compete",
+        "Anonymous team with limited track record"
+      ]
+    },
+    {
+      "netuid": 80,
+      "name": "Dogelayer",
+      "website": "https://dogelayer.ai",
+      "github": "https://github.com/dogelayer-ai/dogelayer",
+      "category": "Infrastructure / Mining Bridge",
+      "description": "First mining pool enabling Scrypt (LTC/DOGE) miners to join Bittensor via merged mining. Dual reward system.",
+      "scores": { "emission": 8, "economics": 6, "code": 7, "hype": 5, "oracle": 7, "stakeflow": 7, "risk": 7 },
+      "details": {
+        "rank": 2, "tao_locked_tao": 219601, "burn_raw": 500,
+        "tao_in_emission_raw": 800582, "alpha_in_raw": 250750730,
+        "featured": true
+      },
+      "bull_case": [
+        "LTC/DOGE hashrate is enormous — 1% capture = transformative",
+        "TAO inflow proves validators see real economic value",
+        "Dual rewards: miners earn LTC/DOGE + alpha simultaneously",
+        "LTC halvening (Aug 2027) will drive miners to alternatives"
+      ],
+      "bear_case": [
+        "Centralized AWS proxy = single point of failure",
+        "Manual withdrawal is custodial (1-3 days)",
+        "LTC/DOGE price collapse eliminates miner incentive",
+        "Competition from InfiniteHash (BTC mining pool)"
+      ]
+    },
+    {
+      "netuid": 92,
+      "name": "TensorClaw",
+      "website": "https://tensorclaw.ai",
+      "github": "https://github.com/tensorclaw/tensorclaw",
+      "category": "LLM Inference / API Gateway",
+      "description": "Decentralized LLM inference subnet aggregating OpenAI, DeepSeek, Claude, and Llama APIs globally. Business API model routes real commercial traffic through miners.",
+      "scores": { "emission": 5, "economics": 7, "code": 4, "hype": 4, "oracle": 8, "stakeflow": 5, "risk": 6 },
+      "details": {
+        "rank": 6, "tao_locked_tao": 269838, "burn_raw": 50000,
+        "tao_in_emission_raw": 0, "alpha_in_raw": 0
+      },
+      "bull_case": [
+        "Business API = real revenue flowing through Bittensor",
+        "Solves API centralization, rate limits, censorship",
+        "Censorship-resistant AI for restricted countries",
+        "Sophisticated scoring: HA failover, anti-cheat, model whitelists"
+      ],
+      "bear_case": [
+        "Centralized AICenter = single point of failure",
+        "Big Tech has better latency, more models, better SLAs",
+        "Only 3 commits on GitHub — very early stage",
+        "Centralized router negates decentralization benefits"
+      ]
+    },
+    {
+      "netuid": 72,
+      "name": "StreetVision",
+      "website": "https://www.natix.network",
+      "github": "https://github.com/natixnetwork/streetvision-subnet",
+      "category": "Computer Vision / Physical AI",
+      "description": "Decentralized computer vision subnet for roadwork detection via NATIX's Internet of Cameras. 1,046+ commits, MIT licensed.",
+      "scores": { "emission": 4, "economics": 5, "code": 7, "hype": 6, "oracle": 7, "stakeflow": 5, "risk": 5 },
+      "details": {
+        "rank": 5, "tao_locked_tao": 191341, "burn_raw": 500,
+        "tao_in_emission_raw": 0, "alpha_in_raw": 0
+      },
+      "bull_case": [
+        "Physical AI = one of 2026's hottest investment themes",
+        "Real camera network = hardware moat pure software subnets lack",
+        "Expandable: traffic monitoring, disaster detection, smart cities",
+        "MIT licensed with professional codebase"
+      ],
+      "bear_case": [
+        "Narrow use case (roadwork detection) limits TAM",
+        "Google Street View, municipal cameras already do this",
+        "Camera network growth dependency",
+        "NATIX is a relatively unknown entity"
+      ]
+    },
+    {
+      "netuid": 89,
+      "name": "InfiniteHash",
+      "website": "https://infinitehash.xyz",
+      "github": "https://github.com/backend-developers-ltd/InfiniteHash",
+      "category": "BTC Mining + Lightning Network",
+      "description": "BTC mining pool bridged to the Lightning Network. Brings SHA-256 hashrate into Bittensor — 286K TAO locked.",
+      "scores": { "emission": 4, "economics": 6, "code": 4, "hype": 3, "oracle": 6, "stakeflow": 7, "risk": 6 },
+      "details": {
+        "rank": 8, "tao_locked_tao": 286400, "burn_raw": 500,
+        "tao_in_emission_raw": 0, "alpha_in_raw": 0
+      },
+      "bull_case": [
+        "BTC hashrate is 100x larger than LTC+DOGE",
+        "Post-BTC-halvening miner cost crisis = demand for alternatives",
+        "Lightning Network enables BTC↔TAO micropayment flows",
+        "Highest locked TAO = strongest commitment signal"
+      ],
+      "bear_case": [
+        "Direct competition with DogeLayer for the mining bridge narrative",
+        "BTC mining is highly centralized (Foundry, Antpool)",
+        "Lightning Network integration is technically complex",
+        "Less active development than DogeLayer"
+      ]
+    },
+    {
+      "netuid": 40,
+      "name": "Chunking",
+      "github": "https://github.com/VectorChat/chunking_subnet",
+      "category": "Data Processing / NLP",
+      "description": "Text chunking for LLM/RAG pipelines. Fully commoditized — any framework does this for free.",
+      "scores": { "emission": 3, "economics": 2, "code": 4, "hype": 2, "oracle": 1, "stakeflow": 2, "risk": 2 },
+      "details": { "rank": 3, "tao_locked_tao": 0, "burn_raw": 500 },
+      "hidden": true
+    },
+    {
+      "netuid": 58,
+      "name": "(Pending)",
+      "category": "Unknown",
+      "description": "No identity, no website, no description. Ghost subnet.",
+      "scores": { "emission": 1, "economics": 1, "code": 0, "hype": 0, "oracle": 0, "stakeflow": 1, "risk": 1 },
+      "details": { "rank": 4, "tao_locked_tao": 0, "burn_raw": 500 },
+      "hidden": true
+    },
+    {
+      "netuid": 42,
+      "name": "Unknown",
+      "category": "Unknown",
+      "description": "2 years old, nothing to show. Zero lockup.",
+      "scores": { "emission": 2, "economics": 1, "code": 0, "hype": 0, "oracle": 0, "stakeflow": 1, "risk": 1 },
+      "details": { "rank": 7, "tao_locked_tao": 0, "burn_raw": 500 },
+      "hidden": true
+    },
+    {
+      "netuid": 86,
+      "name": "(Unnamed)",
+      "category": "Unknown",
+      "description": "Only description: 'Methodical. Strong foundation.' 209K TAO locked is curious.",
+      "scores": { "emission": 2, "economics": 4, "code": 0, "hype": 0, "oracle": 0, "stakeflow": 5, "risk": 2 },
+      "details": { "rank": 9, "tao_locked_tao": 208695, "burn_raw": 500 },
+      "hidden": true
+    },
+    {
+      "netuid": 111,
+      "name": "oneoneone",
+      "github": "https://github.com/oneoneone-io/subnet-111",
+      "category": "Unknown",
+      "description": "250K TAO locked but empty GitHub and no description. Could be stealth project.",
+      "scores": { "emission": 2, "economics": 5, "code": 1, "hype": 0, "oracle": 1, "stakeflow": 5, "risk": 2 },
+      "details": { "rank": 10, "tao_locked_tao": 249856, "burn_raw": 591 },
+      "hidden": true
+    }
+  ]
+}

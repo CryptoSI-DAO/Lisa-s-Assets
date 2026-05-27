@@ -4,620 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lisa's Assets — Crypto Intelligence</title>
-  <style>
-    /* ═══════════════ THEME VARIABLES ═══════════════ */
-    :root, [data-theme="dark"] {
-      --bg: #08080c;
-      --bg2: #0e0e16;
-      --card: #12121c;
-      --card-hover: #1a1a2a;
-      --border: #1e1e30;
-      --border2: #2a2a40;
-      --text: #e8e8f0;
-      --text2: #c0c0d0;
-      --muted: #7878a0;
-      --accent: #a855f7;
-      --accent2: #818cf8;
-      --accent-glow: rgba(168,85,247,0.15);
-      --green: #22c55e;
-      --yellow: #eab308;
-      --orange: #f97316;
-      --red: #ef4444;
-      --blue: #3b82f6;
-      --cyan: #06b6d4;
-      --toggle-bg: #1e1e30;
-      --toggle-knob: #a855f7;
-      --shadow: 0 4px 24px rgba(0,0,0,0.4);
-    }
-    [data-theme="light"] {
-      --bg: #f8f7fc;
-      --bg2: #efeef5;
-      --card: #ffffff;
-      --card-hover: #f4f3f9;
-      --border: #e2e0ea;
-      --border2: #d0ced8;
-      --text: #151420;
-      --text2: #3a3950;
-      --muted: #7878a0;
-      --accent: #7c3aed;
-      --accent2: #4f46e5;
-      --accent-glow: rgba(124,58,237,0.1);
-      --green: #16a34a;
-      --yellow: #ca8a04;
-      --orange: #ea580c;
-      --red: #dc2626;
-      --blue: #2563eb;
-      --cyan: #0891b2;
-      --toggle-bg: #e2e0ea;
-      --toggle-knob: #7c3aed;
-      --shadow: 0 4px 24px rgba(0,0,0,0.08);
-    }
-
-    /* ═══════════════ BASE ═══════════════ */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: background 0.3s, color 0.3s;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* ═══════════════ NAVIGATION ═══════════════ */
-    .topnav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(8,8,12,0.88);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.3s;
-    }
-    [data-theme="light"] .topnav { background: rgba(248,247,252,0.92); }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0.75rem 1.5rem;
-    }
-    .nav-brand {
-      font-size: 1.2rem; font-weight: 800;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .nav-right { display: flex; align-items: center; gap: 0.5rem; }
-    .nav-links { display: flex; gap: 0.15rem; }
-    .nav-link {
-      padding: 0.4rem 0.85rem; border-radius: 8px;
-      font-size: 0.85rem; font-weight: 600;
-      color: var(--muted); cursor: pointer;
-      transition: all 0.2s;
-      border: 1px solid transparent;
-    }
-    .nav-link:hover, .nav-link.active {
-      color: var(--text);
-      background: var(--accent-glow);
-      border-color: rgba(168,85,247,0.25);
-      text-decoration: none;
-    }
-
-    /* Theme toggle */
-    .theme-toggle {
-      width: 44px; height: 44px; border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-      transition: all 0.2s;
-      flex-shrink: 0;
-    }
-    .theme-toggle:hover { border-color: var(--accent); }
-
-    /* Mobile hamburger */
-    .hamburger {
-      display: none;
-      width: 44px; height: 44px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      cursor: pointer;
-      align-items: center; justify-content: center;
-      flex-direction: column;
-      gap: 4px;
-      flex-shrink: 0;
-      transition: all 0.2s;
-    }
-    .hamburger span {
-      display: block; width: 18px; height: 2px;
-      background: var(--text); border-radius: 2px;
-      transition: all 0.3s;
-    }
-    .hamburger:hover { border-color: var(--accent); }
-    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
-
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      gap: 0.25rem;
-      padding: 0.5rem;
-      border-top: 1px solid var(--border);
-      background: var(--bg2);
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu .nav-link { padding: 0.75rem 1rem; font-size: 0.95rem; }
-
-    .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
-
-    /* ═══════════════ HERO ═══════════════ */
-    .hero {
-      text-align: center;
-      padding: 5rem 1.5rem 4rem;
-      background: radial-gradient(ellipse at top, var(--accent-glow), transparent 70%);
-      border-bottom: 1px solid var(--border);
-    }
-    .hero h1 {
-      font-size: 3.2rem; font-weight: 800;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      margin-bottom: 0.75rem; line-height: 1.15;
-    }
-    .hero .tagline {
-      font-size: 1.15rem; color: var(--muted); margin-bottom: 1rem;
-    }
-    .hero .subtitle {
-      display: inline-block; font-size: 0.75rem;
-      padding: 0.35rem 1rem; border-radius: 20px;
-      background: var(--accent-glow); color: var(--accent);
-      letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
-    }
-
-    /* ═══════════════ SECTION TITLES ═══════════════ */
-    .section-title {
-      font-size: 1.4rem; font-weight: 700; margin: 2.5rem 0 1.25rem;
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-
-    /* ═══════════════ ECOSYSTEM CARDS ═══════════════ */
-    .ecosystem-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.25rem; margin-bottom: 2rem;
-    }
-    .eco-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.75rem;
-      transition: all 0.25s;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-    .eco-card:hover {
-      background: var(--card-hover);
-      border-color: var(--accent);
-      box-shadow: 0 0 30px var(--accent-glow);
-      transform: translateY(-2px);
-      text-decoration: none;
-    }
-    .eco-card .eco-icon { font-size: 2.2rem; margin-bottom: 0.75rem; }
-    .eco-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text); }
-    .eco-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.6; }
-    .eco-stats { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-    .eco-stat .label { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
-    .eco-stat .value { font-size: 1.05rem; font-weight: 700; color: var(--text); }
-    .eco-card .eco-coming {
-      position: absolute; top: 1rem; right: 1rem;
-      font-size: 0.65rem; padding: 0.2rem 0.65rem;
-      border-radius: 20px; font-weight: 600;
-      background: var(--accent-glow); color: var(--accent);
-    }
-    .eco-card.coming { opacity: 0.55; }
-    .eco-card.coming:hover { opacity: 0.75; }
-
-    /* ═══════════════ MARKET BAR ═══════════════ */
-    .market-bar {
-      display: flex; justify-content: center; gap: 1.5rem;
-      padding: 1.25rem; background: var(--card);
-      border: 1px solid var(--border); border-radius: 12px;
-      margin: 1.5rem 0; flex-wrap: wrap;
-    }
-    .market-stat { text-align: center; min-width: 80px; }
-    .market-stat .label { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
-    .market-stat .value { font-size: 1.1rem; font-weight: 700; }
-
-    /* ═══════════════ SCORE TABLE ═══════════════ */
-    .score-table {
-      width: 100%; border-collapse: collapse;
-      background: var(--card); border-radius: 12px;
-      overflow: hidden; border: 1px solid var(--border);
-      font-size: 0.8rem;
-    }
-    .score-table th {
-      background: var(--accent-glow);
-      padding: 0.65rem 0.6rem;
-      font-size: 0.65rem; text-transform: uppercase;
-      letter-spacing: 1px; color: var(--muted);
-      text-align: left; border-bottom: 1px solid var(--border);
-      white-space: nowrap;
-    }
-    .score-table td {
-      padding: 0.6rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .score-table tr:last-child td { border-bottom: none; }
-    .score-table tr:hover { background: var(--accent-glow); cursor: pointer; }
-
-    .score-badge {
-      display: inline-block; padding: 0.15rem 0.55rem;
-      border-radius: 20px; font-weight: 700; font-size: 0.75rem;
-    }
-    .score-high { background: rgba(34,197,94,0.15); color: var(--green); }
-    .score-mid { background: rgba(59,130,246,0.15); color: var(--blue); }
-    .score-low { background: rgba(249,115,22,0.15); color: var(--orange); }
-    .score-bad { background: rgba(239,68,68,0.15); color: var(--red); }
-
-    .verdict { font-weight: 700; font-size: 0.78rem; white-space: nowrap; }
-    .verdict-hold { color: var(--green); }
-    .verdict-research { color: var(--blue); }
-    .verdict-watch { color: var(--yellow); }
-    .verdict-caution { color: var(--orange); }
-    .verdict-avoid { color: var(--red); }
-
-    /* ═══════════════ SUBNET CARDS ═══════════════ */
-    .subnet-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; margin-bottom: 1.25rem; overflow: hidden;
-    }
-    .subnet-header {
-      padding: 1.25rem 1.5rem;
-      display: flex; justify-content: space-between; align-items: flex-start;
-      border-bottom: 1px solid var(--border);
-      gap: 1rem;
-    }
-    .subnet-header h2 { font-size: 1.1rem; font-weight: 700; }
-    .subnet-header .subnet-name { color: var(--muted); font-size: 0.82rem; }
-    .lisa-score { font-size: 2rem; font-weight: 800; line-height: 1; white-space: nowrap; }
-    .lisa-max { font-size: 0.75rem; color: var(--muted); }
-    .subnet-body { padding: 1.25rem 1.5rem; }
-
-    .agent-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      gap: 0.65rem; margin-bottom: 1.25rem;
-    }
-    .agent-cell {
-      background: var(--bg2); border-radius: 10px;
-      padding: 0.65rem; text-align: center;
-    }
-    .agent-cell .emoji { font-size: 1.2rem; }
-    .agent-cell .agent-name { font-size: 0.65rem; color: var(--muted); margin: 0.15rem 0; }
-    .agent-cell .agent-score { font-size: 1rem; font-weight: 700; }
-
-    .analyst-section { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
-    .analyst-section h3 { font-size: 0.82rem; color: var(--accent); margin-bottom: 0.4rem; }
-    .analyst-section p { font-size: 0.82rem; color: var(--text2); line-height: 1.7; }
-
-    .bull-bear { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
-    .bull-box, .bear-box { padding: 0.75rem; border-radius: 10px; font-size: 0.82rem; }
-    .bull-box { background: rgba(34,197,94,0.04); border: 1px solid rgba(34,197,94,0.12); }
-    .bear-box { background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.12); }
-    .bull-box h4 { color: var(--green); margin-bottom: 0.4rem; font-size: 0.85rem; }
-    .bear-box h4 { color: var(--red); margin-bottom: 0.4rem; font-size: 0.85rem; }
-    .bull-box ul, .bear-box ul { list-style: none; padding: 0; }
-    .bull-box li, .bear-box li { padding: 0.15rem 0; color: var(--text2); }
-    .bull-box li::before { content: "✅ "; }
-    .bear-box li::before { content: "⚠️ "; }
-
-    /* ═══════════════ COMING SOON / EMPTY ═══════════════ */
-    .empty-state {
-      text-align: center; padding: 3.5rem 1.5rem;
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px;
-    }
-    .empty-state .icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
-    .empty-state h3 { font-size: 1.2rem; margin-bottom: 0.4rem; }
-    .empty-state p { color: var(--muted); font-size: 0.9rem; }
-
-    .coming-soon-tag {
-      display: inline-block; font-size: 0.65rem; padding: 0.2rem 0.6rem;
-      border-radius: 20px; font-weight: 600;
-      background: var(--accent-glow); color: var(--accent);
-      text-transform: uppercase; letter-spacing: 1px;
-    }
-
-    /* ═══════════════ DETAIL ═══════════════ */
-    .breadcrumb { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.25rem; }
-    .breadcrumb a { color: var(--muted); }
-    .breadcrumb a:hover { color: var(--accent); }
-    details { margin-bottom: 1rem; }
-    summary {
-      cursor: pointer; padding: 0.75rem 1rem;
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; font-weight: 700; font-size: 0.9rem;
-    }
-    summary:hover { border-color: var(--accent); }
-    details[open] summary { border-radius: 12px 12px 0 0; }
-
-    /* ═══════════════ FOOTER ═══════════════ */
-    footer {
-      text-align: center; padding: 2.5rem 1.5rem;
-      color: var(--muted); font-size: 0.78rem;
-      border-top: 1px solid var(--border); margin-top: 2.5rem;
-    }
-    footer a { color: var(--accent); }
-    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-
-    /* ═══════════════ MOBILE RESPONSIVE ═══════════════ */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .theme-toggle { display: none; }
-      .hamburger { display: flex; }
-      .nav-inner { padding: 0.6rem 1rem; }
-
-      .hero { padding: 3rem 1rem 2.5rem; }
-      .hero h1 { font-size: 2rem; }
-      .hero .tagline { font-size: 0.95rem; }
-
-      .container { padding: 1rem; }
-      .section-title { font-size: 1.15rem; margin: 2rem 0 1rem; }
-
-      .market-bar { gap: 0.75rem; padding: 1rem; }
-      .market-stat { min-width: 60px; }
-      .market-stat .value { font-size: 0.95rem; }
-
-      .ecosystem-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .eco-card { padding: 1.25rem; }
-
-      .score-table { font-size: 0.7rem; }
-      .score-table th, .score-table td { padding: 0.4rem 0.35rem; }
-
-      .subnet-header { flex-direction: column; gap: 0.5rem; padding: 1rem; }
-      .subnet-header h2 { font-size: 1rem; }
-      .lisa-score { font-size: 1.6rem; }
-      .subnet-body { padding: 1rem; }
-
-      .agent-grid { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
-      .agent-cell .emoji { font-size: 1rem; }
-      .agent-cell .agent-score { font-size: 0.9rem; }
-
-      .bull-bear { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 1.7rem; }
-      .agent-grid { grid-template-columns: repeat(3, 1fr); }
-      .score-table { font-size: 0.62rem; }
-      .verdict { font-size: 0.7rem; }
-      .nav-brand { font-size: 1rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- ═══════════════ NAVIGATION ═══════════════ -->
+<!-- NAV -->
 <nav class="topnav">
   <div class="nav-inner">
     <div class="nav-brand">🎯 Lisa's Assets</div>
     <div class="nav-right">
       <div class="nav-links">
-        <a class="nav-link active" onclick="showPage('home')">Home</a>
-        <a class="nav-link" onclick="showPage('tao')">TAO Bittensor</a>
-        <a class="nav-link" onclick="showComingSoon()">ETH</a>
-        <a class="nav-link" onclick="showComingSoon()">HYPE</a>
+        <a class="nav-link active" data-route="home" href="#home">Home</a>
+        <a class="nav-link" data-route="tao" href="#tao">TAO Bittensor</a>
+        <a class="nav-link" data-route="eth" href="#eth">ETH</a>
+        <a class="nav-link" data-route="hype" href="#hype">HYPE</a>
       </div>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
-      <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <button class="theme-toggle" onclick="Theme.toggle()" title="Toggle theme">🌙</button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a class="nav-link active" onclick="showPage('home'); closeMobile()">Home</a>
-    <a class="nav-link" onclick="showPage('tao'); closeMobile()">TAO Bittensor</a>
-    <a class="nav-link" onclick="showComingSoon(); closeMobile()">ETH</a>
-    <a class="nav-link" onclick="showComingSoon(); closeMobile()">HYPE</a>
-    <a class="nav-link" onclick="toggleTheme(); closeMobile()">🌙 Toggle Theme</a>
+    <a class="nav-link" data-route="home" href="#home">Home</a>
+    <a class="nav-link" data-route="tao" href="#tao">TAO Bittensor</a>
+    <a class="nav-link" data-route="eth" href="#eth">ETH</a>
+    <a class="nav-link" data-route="hype" href="#hype">HYPE</a>
+    <a class="nav-link" onclick="Theme.toggle()">🌙 Toggle Theme</a>
   </div>
 </nav>
 
-<!-- ═══════════════ HOME ═══════════════ -->
-<div id="page-home">
+<!-- HOME -->
+<section id="page-home">
   <div class="hero">
     <h1>Lisa's Assets</h1>
     <p class="tagline">The Ultimate Assets for Alpha Seekers</p>
-    <span class="subtitle">AI-Powered Crypto Intelligence</span>
+    <span class="subtitle-tag">AI-Powered Crypto Intelligence</span>
   </div>
-
   <div class="container">
     <h2 class="section-title">🔎 Ecosystems</h2>
-    <div class="ecosystem-grid">
-      <a class="eco-card" style="text-decoration:none;" onclick="showPage('tao')">
-        <div class="eco-icon">🌐</div>
-        <h3>TAO Bittensor</h3>
-        <p>Decentralized AI subnet scoring. 128 subnets evaluated by the Lisa Coefficient framework.</p>
-        <div class="eco-stats">
-          <div class="eco-stat"><div class="label">Subnets</div><div class="value">128</div></div>
-          <div class="eco-stat"><div class="label">Scored</div><div class="value">10</div></div>
-          <div class="eco-stat"><div class="label">TAO Price</div><div class="value">$277</div></div>
-        </div>
-      </a>
-      <div class="eco-card coming" onclick="showComingSoon()">
-        <div class="eco-coming">Coming Soon</div>
-        <div class="eco-icon">⟠</div>
-        <h3>Ethereum</h3>
-        <p>DeFi protocols, L2s, and infrastructure projects scored by the Lisa Coefficient agents.</p>
-        <div class="eco-stats">
-          <div class="eco-stat"><div class="label">Status</div><div class="value" style="color:var(--accent);">Building</div></div>
-        </div>
-      </div>
-      <div class="eco-card coming" onclick="showComingSoon()">
-        <div class="eco-coming">Coming Soon</div>
-        <div class="eco-icon">⚡</div>
-        <h3>HYPE</h3>
-        <p>Hyperliquid ecosystem scoring — perpetuals, LPs, and native infrastructure.</p>
-        <div class="eco-stats">
-          <div class="eco-stat"><div class="label">Status</div><div class="value" style="color:var(--accent);">Building</div></div>
-        </div>
-      </div>
-    </div>
+    <div id="ecosystem-grid" class="ecosystem-grid"></div>
   </div>
-</div>
+</section>
 
-<!-- ═══════════════ TAO BITTENSOR ═══════════════ -->
-<div id="page-tao" style="display:none;">
-  <div class="hero" style="padding: 2.5rem 1.5rem 2rem;">
-    <div class="breadcrumb"><a onclick="showPage('home')">Lisa's Assets</a> / TAO Bittensor</div>
-    <h1 style="font-size: 2.2rem;">🌐 TAO Bittensor</h1>
-    <p class="tagline">Decentralized AI Subnet Intelligence — May 2026</p>
+<!-- TAO BITTENSOR -->
+<section id="page-tao" class="page" aria-hidden="true">
+  <div class="hero" style="padding:2.5rem 1.5rem 2rem;">
+    <div class="breadcrumb"><a href="#home">Lisa's Assets</a> / TAO Bittensor</div>
+    <h1 style="font-size:2.2rem;">🌐 TAO Bittensor</h1>
+    <p class="tagline">Decentralized AI Subnet Intelligence</p>
   </div>
-
   <div class="container">
-    <div class="market-bar">
-      <div class="market-stat"><div class="label">TAO</div><div class="value">$277</div></div>
-      <div class="market-stat"><div class="label">MCap</div><div class="value">$3.03B</div></div>
-      <div class="market-stat"><div class="label">Daily Issuance</div><div class="value">3,600τ</div></div>
-      <div class="market-stat"><div class="label">Block Reward</div><div class="value">0.5τ</div></div>
-      <div class="market-stat"><div class="label">Halvening</div><div class="value">Dec 2029</div></div>
-    </div>
-
+    <div id="market-bar" class="market-bar"></div>
     <h2 class="section-title">📊 Score Summary</h2>
-    <div class="table-wrap">
-      <table class="score-table">
-        <thead>
-          <tr><th>Rank</th><th>Subnet</th><th>Name</th><th>🧮</th><th>📊</th><th>👨‍💻</th><th>🔥</th><th>🔍</th><th>💧</th><th>⚠️</th><th>Lisa C</th><th>Verdict</th></tr>
-        </thead>
-        <tbody>
-          <tr onclick="showProject('sn80')"><td>1</td><td>SN116</td><td>TaoLend</td><td>6</td><td>5</td><td>4</td><td>3</td><td>7</td><td>4</td><td>6</td><td><span class="score-badge score-mid">5.8</span></td><td><span class="verdict verdict-research">🔷 Research</span></td></tr>
-          <tr onclick="showProject('sn80')"><td>2</td><td>SN80</td><td>Dogelayer ⭐</td><td>8</td><td>6</td><td>7</td><td>5</td><td>7</td><td>7</td><td>7</td><td><span class="score-badge score-high">7.4</span></td><td><span class="verdict verdict-hold">🟢 Conviction</span></td></tr>
-          <tr><td>3</td><td>SN40</td><td>Chunking</td><td>3</td><td>2</td><td>4</td><td>2</td><td>1</td><td>2</td><td>2</td><td><span class="score-badge score-bad">2.3</span></td><td><span class="verdict verdict-avoid">🔴 Avoid</span></td></tr>
-          <tr><td>4</td><td>SN58</td><td>(Pending)</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td><span class="score-badge score-bad">0.8</span></td><td><span class="verdict verdict-avoid">🔴 Avoid</span></td></tr>
-          <tr><td>5</td><td>SN72</td><td>StreetVision</td><td>4</td><td>5</td><td>7</td><td>6</td><td>7</td><td>5</td><td>5</td><td><span class="score-badge score-mid">5.2</span></td><td><span class="verdict verdict-research">🔷 Research</span></td></tr>
-          <tr><td>6</td><td>SN92</td><td>TensorClaw</td><td>5</td><td>7</td><td>4</td><td>4</td><td>8</td><td>5</td><td>6</td><td><span class="score-badge score-mid">5.9</span></td><td><span class="verdict verdict-research">🔷 Research</span></td></tr>
-          <tr><td>7</td><td>SN42</td><td>Unknown</td><td>2</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td><span class="score-badge score-bad">1.0</span></td><td><span class="verdict verdict-avoid">🔴 Avoid</span></td></tr>
-          <tr><td>8</td><td>SN89</td><td>InfiniteHash</td><td>4</td><td>6</td><td>4</td><td>3</td><td>6</td><td>7</td><td>6</td><td><span class="score-badge score-mid">5.1</span></td><td><span class="verdict verdict-research">🔷 Research</span></td></tr>
-          <tr><td>9</td><td>SN86</td><td>(Unnamed)</td><td>2</td><td>4</td><td>0</td><td>0</td><td>0</td><td>5</td><td>2</td><td><span class="score-badge score-bad">2.0</span></td><td><span class="verdict verdict-avoid">🔴 Avoid</span></td></tr>
-          <tr><td>10</td><td>SN111</td><td>oneoneone</td><td>2</td><td>5</td><td>1</td><td>0</td><td>1</td><td>5</td><td>2</td><td><span class="score-badge score-bad">2.1</span></td><td><span class="verdict verdict-avoid">🔴 Avoid</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Dogelayer -->
-    <div class="subnet-card" id="card-sn80">
-      <div class="subnet-header" style="background: linear-gradient(135deg, var(--accent-glow), rgba(34,197,94,0.04));">
-        <div><h2>🥈 SN80 — Dogelayer</h2><div class="subnet-name">dogelayer.ai — Scrypt Mining Pool Bridge</div></div>
-        <div style="text-align:right;"><div class="lisa-score" style="color:var(--green);">7.4</div><div class="lisa-max">/ 10 — 🟢 Conviction</div></div>
-      </div>
-      <div class="subnet-body">
-        <div class="agent-grid">
-          <div class="agent-cell"><div class="emoji">🧮</div><div class="agent-name">Emission</div><div class="agent-score">8</div></div>
-          <div class="agent-cell"><div class="emoji">📊</div><div class="agent-name">Economics</div><div class="agent-score">6</div></div>
-          <div class="agent-cell"><div class="emoji">👨‍💻</div><div class="agent-name">Code</div><div class="agent-score">7</div></div>
-          <div class="agent-cell"><div class="emoji">🔥</div><div class="agent-name">Hype</div><div class="agent-score">5</div></div>
-          <div class="agent-cell"><div class="emoji">🔍</div><div class="agent-name">Oracle</div><div class="agent-score">7</div></div>
-          <div class="agent-cell"><div class="emoji">💧</div><div class="agent-name">StakeFlow</div><div class="agent-score">7</div></div>
-          <div class="agent-cell"><div class="emoji">⚠️</div><div class="agent-name">Risk</div><div class="agent-score">7</div></div>
-        </div>
-        <div class="analyst-section"><h3>🔍 Oracle Analysis</h3><p>First mining pool enabling Scrypt (LTC/DOGE) miners to join Bittensor via merged mining. Dual reward system — miners earn both LTC/DOGE from mining AND alpha tokens from Bittensor validation. Open-source with Docker support and AWS backend. Only subnet in the top 10 with real TAO emission inflow — the root network literally pays this subnet.</p></div>
-        <div class="bull-bear">
-          <div class="bull-box"><h4>Bull Case</h4><ul><li>LTC/DOGE hashrate is enormous — 1% capture = transformative</li><li>TAO inflow proves validators see real economic value</li><li>Dual rewards: miners earn LTC/DOGE + alpha simultaneously</li><li>LTC halvening (Aug 2027) will drive miners to alternatives</li></ul></div>
-          <div class="bear-box"><h4>Bear Case</h4><ul><li>Centralized AWS proxy = single point of failure</li><li>Manual withdrawal is custodial (1-3 days)</li><li>LTC/DOGE price collapse eliminates miner incentive</li><li>Competition from InfiniteHash (BTC mining pool)</li></ul></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TensorClaw -->
-    <div class="subnet-card" id="card-sn92">
-      <div class="subnet-header">
-        <div><h2>🥉 SN92 — TensorClaw</h2><div class="subnet-name">tensorclaw.ai — Decentralized LLM Inference</div></div>
-        <div style="text-align:right;"><div class="lisa-score" style="color:var(--blue);">5.9</div><div class="lisa-max">/ 10 — 🔷 Research Further</div></div>
-      </div>
-      <div class="subnet-body">
-        <div class="agent-grid">
-          <div class="agent-cell"><div class="emoji">🧮</div><div class="agent-name">Emission</div><div class="agent-score">5</div></div>
-          <div class="agent-cell"><div class="emoji">📊</div><div class="agent-name">Economics</div><div class="agent-score">7</div></div>
-          <div class="agent-cell"><div class="emoji">👨‍💻</div><div class="agent-name">Code</div><div class="agent-score">4</div></div>
-          <div class="agent-cell"><div class="emoji">🔥</div><div class="agent-name">Hype</div><div class="agent-score">4</div></div>
-          <div class="agent-cell"><div class="emoji">🔍</div><div class="agent-name">Oracle</div><div class="agent-score">8</div></div>
-          <div class="agent-cell"><div class="emoji">💧</div><div class="agent-name">StakeFlow</div><div class="agent-score">5</div></div>
-          <div class="agent-cell"><div class="emoji">⚠️</div><div class="agent-name">Risk</div><div class="agent-score">6</div></div>
-        </div>
-        <div class="analyst-section"><h3>🔍 Oracle Analysis</h3><p>Decentralized LLM inference subnet aggregating OpenAI, DeepSeek, Claude, and Llama APIs globally. "Business API" model routes real commercial traffic through miners. WebSocket router for easy miner setup. Active anti-cheat with real inference probes.</p></div>
-      </div>
-    </div>
-
-    <!-- TaoLend -->
-    <div class="subnet-card" id="card-sn116">
-      <div class="subnet-header">
-        <div><h2>🥇 SN116 — TaoLend</h2><div class="subnet-name">taolend.io — Decentralized TAO Lending</div></div>
-        <div style="text-align:right;"><div class="lisa-score" style="color:var(--blue);">5.8</div><div class="lisa-max">/ 10 — 🔷 Research Further</div></div>
-      </div>
-      <div class="subnet-body">
-        <div class="agent-grid">
-          <div class="agent-cell"><div class="emoji">🧮</div><div class="agent-name">Emission</div><div class="agent-score">6</div></div>
-          <div class="agent-cell"><div class="emoji">📊</div><div class="agent-name">Economics</div><div class="agent-score">5</div></div>
-          <div class="agent-cell"><div class="emoji">👨‍💻</div><div class="agent-name">Code</div><div class="agent-score">4</div></div>
-          <div class="agent-cell"><div class="emoji">🔥</div><div class="agent-name">Hype</div><div class="agent-score">3</div></div>
-          <div class="agent-cell"><div class="emoji">🔍</div><div class="agent-name">Oracle</div><div class="agent-score">7</div></div>
-          <div class="agent-cell"><div class="emoji">💧</div><div class="agent-name">StakeFlow</div><div class="agent-score">4</div></div>
-          <div class="agent-cell"><div class="emoji">⚠️</div><div class="agent-name">Risk</div><div class="agent-score">6</div></div>
-        </div>
-        <div class="analyst-section"><h3>🔍 Oracle Analysis</h3><p>First decentralized lending protocol for TAO. Users lend TAO, borrowers collateralize with subnet alpha tokens. Like Aave/Compound for Bittensor. 128 subnets = 128 potential collateral types.</p></div>
-      </div>
-    </div>
-
-    <!-- StreetVision -->
-    <div class="subnet-card" id="card-sn72">
-      <div class="subnet-header">
-        <div><h2>SN72 — StreetVision by NATIX</h2><div class="subnet-name">natix.network — Physical AI / Roadwork Detection</div></div>
-        <div style="text-align:right;"><div class="lisa-score" style="color:var(--blue);">5.2</div><div class="lisa-max">/ 10 — 🔷 Research Further</div></div>
-      </div>
-      <div class="subnet-body">
-        <div class="agent-grid">
-          <div class="agent-cell"><div class="emoji">🧮</div><div class="agent-name">Emission</div><div class="agent-score">4</div></div>
-          <div class="agent-cell"><div class="emoji">📊</div><div class="agent-name">Economics</div><div class="agent-score">5</div></div>
-          <div class="agent-cell"><div class="emoji">👨‍💻</div><div class="agent-name">Code</div><div class="agent-score">7</div></div>
-          <div class="agent-cell"><div class="emoji">🔥</div><div class="agent-name">Hype</div><div class="agent-score">6</div></div>
-          <div class="agent-cell"><div class="emoji">🔍</div><div class="agent-name">Oracle</div><div class="agent-score">7</div></div>
-          <div class="agent-cell"><div class="emoji">💧</div><div class="agent-name">StakeFlow</div><div class="agent-score">5</div></div>
-          <div class="agent-cell"><div class="emoji">⚠️</div><div class="agent-name">Risk</div><div class="agent-score">5</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- InfiniteHash -->
-    <div class="subnet-card" id="card-sn89">
-      <div class="subnet-header">
-        <div><h2>SN89 — InfiniteHash</h2><div class="subnet-name">infinitehash.xyz — BTC Mining + Lightning Network</div></div>
-        <div style="text-align:right;"><div class="lisa-score" style="color:var(--blue);">5.1</div><div class="lisa-max">/ 10 — 🔷 Research Further</div></div>
-      </div>
-      <div class="subnet-body">
-        <div class="agent-grid">
-          <div class="agent-cell"><div class="emoji">🧮</div><div class="agent-name">Emission</div><div class="agent-score">4</div></div>
-          <div class="agent-cell"><div class="emoji">📊</div><div class="agent-name">Economics</div><div class="agent-score">6</div></div>
-          <div class="agent-cell"><div class="emoji">👨‍💻</div><div class="agent-name">Code</div><div class="agent-score">4</div></div>
-          <div class="agent-cell"><div class="emoji">🔥</div><div class="agent-name">Hype</div><div class="agent-score">3</div></div>
-          <div class="agent-cell"><div class="emoji">🔍</div><div class="agent-name">Oracle</div><div class="agent-score">6</div></div>
-          <div class="agent-cell"><div class="emoji">💧</div><div class="agent-name">StakeFlow</div><div class="agent-score">7</div></div>
-          <div class="agent-cell"><div class="emoji">⚠️</div><div class="agent-name">Risk</div><div class="agent-score">6</div></div>
-        </div>
-      </div>
-    </div>
-
-    <details>
-      <summary>🔴 Low-Scoring Subnets (SN40, SN58, SN42, SN86, SN111)</summary>
-      <div style="padding:1rem; background:var(--card); border:1px solid var(--border); border-top:none; border-radius:0 0 12px 12px;">
-        <p style="font-size:0.82rem;color:var(--muted);"><strong>SN40 Chunking</strong> — Commoditized, 0 lockup after 2y.<br><strong>SN58 Pending</strong> — Ghost subnet, no identity.<br><strong>SN42 Unknown</strong> — 2y old, nothing.<br><strong>SN86 Unnamed</strong> — 209K lockup but no product.<br><strong>SN111 oneoneone</strong> — 250K lockup, empty GitHub.</p>
-      </div>
-    </details>
+    <div id="score-table"></div>
+    <div id="subnet-cards"></div>
   </div>
-</div>
+</section>
 
-<!-- ═══════════════ COMING SOON ═══════════════ -->
-<div id="page-coming" style="display:none;">
+<!-- COMING SOON (ETH / HYPE) -->
+<section id="page-coming" class="page" aria-hidden="true">
   <div class="container">
     <div class="empty-state">
       <div class="icon">🚧</div>
@@ -625,81 +71,86 @@
       <p>This ecosystem section is under construction. Check back soon for scorecards.</p>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ═══════════════ PROJECT DETAIL (placeholder) ═══════════════ -->
-<div id="page-project" style="display:none;">
-  <div class="container" id="project-content">
-    <div class="empty-state">
-      <div class="icon">📄</div>
-      <h3>Project Detail Page</h3>
-      <p>Click any subnet in the score table to view its full research deep-dive. Coming soon!</p>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════ FOOTER ═══════════════ -->
+<!-- FOOTER -->
 <footer>
   <p>🎯 Lisa's Assets — The Ultimate Assets for Alpha Seekers</p>
   <p style="margin-top:0.5rem;">AI-Powered Crypto Intelligence</p>
   <p style="margin-top:0.5rem;">Source: <a href="https://github.com/CryptoSI-DAO/Lisa-s-Assets">GitHub</a></p>
 </footer>
 
+<script src="js/theme.js"></script>
+<script src="js/router.js"></script>
+<script src="js/renderer.js"></script>
 <script>
-  // ═══ THEME TOGGLE ═══
-  function toggleTheme() {
-    const html = document.documentElement;
-    const btn = document.querySelector('.theme-toggle');
-    if (html.getAttribute('data-theme') === 'dark') {
-      html.setAttribute('data-theme', 'light');
-      btn.textContent = '☀️';
-      localStorage.setItem('theme', 'light');
-    } else {
-      html.setAttribute('data-theme', 'dark');
-      btn.textContent = '🌙';
-      localStorage.setItem('theme', 'dark');
-    }
-  }
-  // Restore saved theme
-  const saved = localStorage.getItem('theme');
-  if (saved === 'light') { document.documentElement.setAttribute('data-theme', 'light'); document.querySelector('.theme-toggle').textContent = '☀️'; }
+(function() {
+  'use strict';
 
   // ═══ MOBILE MENU ═══
-  function toggleMobileMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-    document.querySelector('.hamburger').classList.toggle('open');
-  }
-  function closeMobile() {
-    document.getElementById('mobileMenu').classList.remove('open');
-    document.querySelector('.hamburger').classList.remove('open');
-  }
-
-  // ═══ PAGE NAVIGATION ═══
-  function showPage(page) {
-    ['home','tao','project','coming'].forEach(p => {
-      document.getElementById('page-' + p).style.display = p === page ? '' : 'none';
-    });
-    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-    const map = {home:0, tao:1};
-    if (map[page] !== undefined) {
-      document.querySelectorAll('.nav-links .nav-link')[map[page]]?.classList.add('active');
+  var ham = document.getElementById('hamburgerBtn');
+  var menu = document.getElementById('mobileMenu');
+  if (ham) ham.addEventListener('click', function() {
+    menu.classList.toggle('open');
+    ham.classList.toggle('open');
+  });
+  menu.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A') {
+      menu.classList.remove('open');
+      ham.classList.remove('open');
     }
-    window.scrollTo({top:0, behavior:'smooth'});
-    closeMobile();
+  });
+
+  // ═══ INIT THEME ═══
+  Theme.init();
+
+  // ═══ LOAD DATA & RENDER ═══
+  var DATA_URL = 'data/subnets-may-2026.json';
+  fetch(DATA_URL).then(function(r) { return r.json(); }).then(renderAll).catch(function(e) {
+    document.body.innerHTML = '<p style="padding:2rem;color:var(--red)">Data load failed: ' + e.message + '</p>';
+  });
+
+  function renderAll(data) {
+    renderEcosystems(data);
+    renderMarketBar(data.meta);
+    document.getElementById('score-table').innerHTML = Renderer.renderScoreTable(data.subnets, data.weights, data.verdicts);
+    document.getElementById('subnet-cards').innerHTML = Renderer.renderSubnetCards(data.subnets, data.weights, data.verdicts);
+    Router.init();
   }
 
-  function showProject(id) {
-    showPage('tao');
-    setTimeout(() => {
-      const card = document.getElementById('card-' + id);
-      if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 150);
+  function renderEcosystems(data) {
+    var ids = ['tao', 'eth', 'hype'], html = '', eco, stats, i, s;
+    for (i = 0; i < ids.length; i++) {
+      eco = data.ecosystems[ids[i]];
+      if (!eco) continue;
+      stats = (eco.stats && eco.stats.length) ? eco.stats.map(function(st) {
+        return '<div class="eco-stat"><div class="label">' + st.label + '</div><div class="value">' + st.value + '</div></div>';
+      }).join('') : '';
+      html += '<div class="eco-card' + (eco.status === 'coming' ? ' coming' : '') + '" onclick="location.hash=\'' + ids[i] + '\'">'
+        + (eco.status === 'coming' ? '<div class="tag-coming">Coming Soon</div>' : '')
+        + '<div class="eco-icon">' + eco.icon + '</div>'
+        + '<h3>' + eco.name + '</h3>'
+        + '<p>' + eco.coming_reason + '</p>'
+        + '<div class="eco-stats">' + stats + '</div></div>';
+    }
+    document.getElementById('ecosystem-grid').innerHTML = html;
   }
 
-  function showComingSoon() {
-    showPage('coming');
-    closeMobile();
+  function renderMarketBar(meta) {
+    var stats = [
+      { label: 'TAO', value: '$' + meta.tao_price },
+      { label: 'MCap', value: '$' + meta.tao_market_cap + 'B' },
+      { label: 'Issuance', value: (meta.daily_issuance / 1000).toFixed(1) + 'Kτ/day' },
+      { label: 'Block', value: meta.block_reward + 'τ' },
+      { label: 'Halving', value: meta.next_halving.split('-')[0] }
+    ];
+    var html = '';
+    for (var i = 0; i < stats.length; i++) {
+      html += '<div class="market-stat"><div class="label">' + stats[i].label + '</div><div class="value">' + stats[i].value + '</div></div>';
+    }
+    document.getElementById('market-bar').innerHTML = html;
   }
+})();
 </script>
 
 </body>

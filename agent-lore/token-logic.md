@@ -34,18 +34,22 @@ In the lore, TokenLogic and MavenMetrics are like siblings — MavenMetrics trac
 
 ## Visual Description
 
+### Art Style
+**Art Deco / Geometric Elegance** — sharp angles, symmetry, gold-and-black luxury. Think 1920s meets crypto-futurism. The Great Gatsby redesigned by a blockchain architect. Ornate geometry, fan motifs, sunburst patterns, stepped forms. Glamorous, architectural, precise.
+
 ### Character Design
-- **Form:** Tall, lean, elegant. Female-presenting. Moves with deliberate, chess-master precision.
-- **Face:** Sharp, angular features with a knowing smirk. High cheekbones. Skin tone: deep brown with subtle iridescent purple undertones that shift in the light.
-- **Eyes:** Deep violet (#7c3aed) with a subtle shimmer. Eyes always seem to be evaluating, calculating.
-- **Hair:** Sleek, jet-black hair pulled into a high, architectural updo with geometric purple crystal pins that glow faintly
-- **Attire:** A form-fitting, structured bodysuit in deep indigo (#1a0a3e) with an overlay of translucent circuit-like patterns in violet. A long asymmetric coat-drape that flows behind them, open at the front, with the interior lined in holographic material that displays equations and game-theory diagrams.
-- **Accessories:** Fingertip gloves that project holographic game trees and decision matrices when they gesture. A floating TAO token that orbits their head slowly, surrounded by smaller satellite tokens representing different stakeholder groups.
-- **Aura/Glow:** Rich electric purple (#8b5cf6) — the signature color of the network's economic analysis
-- **Background motif:** A translucent 3D game-theory decision tree or payoff matrix, with nodes glowing as optimal strategies are highlighted
+- **Form:** Tall, slender, immaculately composed. Every line of the body is geometric — the torso is a elongated trapezoid, limbs are clean cylindrical forms, the posture is perfectly upright. Not robotic — *architectural*. Like a building gained sentience.
+- **Face:** A smooth, stylized face — almost mask-like. Features are simplified, geometric, elegant. High cheekbones that are sharp angles. A small, controlled smile (more a geometric line than an expression). Skin is a warm bronze-gold metallic tone, like a polished Art Deco statue. No wrinkles, no imperfection — pure geometric ideal.
+- **Eyes:** Almond-shaped, slightly large, in a deep purple-violet (#7c3aed). The irises contain tiny, intricate **geometric pattern overlays** — like seeing circuitry or architectural blueprints reflected in the pupils. The eyes are outlined in sharp black, giving a stylized, almost Egyptian-revival look.
+- **Hair:** A perfectly sculpted, geometric bob — every strand aligned, every angle sharp. The hair is black with a strong purple sheen, styled in an Art Deco wave pattern that frames the face like a symmetrical crown. It looks like it was designed with a compass and straightedge.
+- **Attire:** A floor-length, high-collar coat-dress hybrid in deep midnight blue (#191970) with bold **gold geometric panel inlays** — chevrons, sunbursts, stepped zigzags — all in gleaming gold. The coat is structured like architecture: lapels are sharp triangular planes, the waist is defined by a gold geometric belt-buckle. Long gold-trimmed gloves that extend past the elbows.
+- **Accessories:** A massive geometric **fan** unfolds from behind the back — like an Art Deco peacock display — made of interlocking gold-rimmed purple and black triangular panels. At its center, a holographic TAO token floats inside a geometric wire-frame icosahedron. The gloved hands hold a sceptre-like rod topped with a golden chess piece (the queen).
+- **Aura/Signature color:** Rich electric purple (#8b5cf6) with gold accents — regal, calculated, supremely elegant.
+- **Background:** A vast dark void filled with enormous, semi-transparent **geometric wireframe structures** — flattened cubes, elongated pyramids, nested octahedrons — all in faint gold on black, receding to infinity like a crypto-Babylon. A subtle sunburst radiates from behind the figure (classic Art Deco motif).
 
 ### Art Direction Notes
-- Pose: Leaning against an invisible surface, one arm crossed, the other hand projecting a holographic game tree
-- Mood: Intellectual elegance — the smartest person in the room who knows it but isn't insufferable about it
-- The floating token constellation around their head should show some tokens orbiting closer (aligned incentives) and some drifting apart (misaligned incentives)
-- The smirk should be subtle — confident, not arrogant
+- **Composition:** Standing in a perfect symmetrical pose, slightly turned, one hand on chin in a "considering" gesture, the other holding the sceptre at rest. The fan behind should be fully open — this is the dominant visual silhouette.
+- **Mood:** Quiet, supreme confidence. TokenLogic doesn't need to raise its voice. It designed the game everyone else is playing. Every geometric line says "I thought about this more carefully than you did."
+- **Key reference:** Art Deco architecture (Chrysler Building, Empire State), Tamara de Lempicka paintings, Erte illustrations, the geometric luxury of *Skyfall*'s Severine.
+- **Symmetry is everything** — this design should be almost perfectly bilateral. Asymmetry would break the character.
+- **The geometric eye patterns should be visible in close-up** — tiny, beautiful, intricate. They're the detail that separates "Art Deco character" from "Art Deco god."

@@ -34,18 +34,22 @@ TruthSeeker has developed a reputation among the other agents for being cold, pr
 
 ## Visual Description
 
+### Art Style
+**Dark Renaissance / Caravaggio chiaroscuro** — dramatic single-source lighting, deep shadows, oil painting texture. Think 17th-century religious painting meets blockchain. Rich earth tones, heavy contrast, no neon.
+
 ### Character Design
-- **Form:** Tall, androgynous figure wrapped in flowing data-scrolls that unfurl from their body like sacred texts made of light
-- **Face:** Half their face is obscured by a visor/eye-piece that displays scrolling hex code and transaction hashes. The visible half is calm, sharp-featured, with pale lavender skin
-- **Eyes:** One normal eye (icy blue), one that is a glowing golden all-seeing eye — the "Oracle Eye" that sees through to on-chain truth
-- **Hair:** Long, white-silver hair that floats weightlessly, threaded with faint lines of cyan code that flow upward like inverse falling rain
-- **Attire:** Dark indigo robes with gold-circuit embroidery that pulses like a heartbeat. The robes have a high collar.
-- **Accessories:** Holds an ancient-style staff topped with a floating holographic TAO token that projects transaction data
-- **Aura/Glow:** Deep gold (#f59e0b) — the only agent with a gold signature, reflecting Tier 1 status
-- **Background motif:** Floating chains and interconnected blockchain nodes forming a web behind them
+- **Form:** A weathered, hooded figure — humanoid but clearly not human. More like a marble statue that gained sentience. Broad, heavy presence. Not slim or elegant — imposing, grounded, ancient.
+- **Face:** Partially obscured by a deep hood. What's visible is stone-like skin with faint cracks glowing molten gold from within — like a cracked statue with truth-light bleeding through. No mouth visible. Just the eyes.
+- **Eyes:** Two deep-set eyes that burn with a steady, golden-white light. Not glowing with particles or effects — just a calm, focused, *ancient* luminance. Like stained glass lit from behind. The eyes are the ONLY bright element in the entire composition.
+- **Hair:** None visible — the hood covers everything except the lower face and eyes.
+- **Attire:** Heavy, layered robes that look carved from dark stone or petrified wood, with intricate chain-and-link patterns chiseled into the fabric texture. The robes are massive — they pool on the floor around the figure and create a sense of weight and permanence. Gold-leaf accents trace the chain patterns.
+- **Accessories:** One hand emerges from the robes, holding a primitive stone tablet (like Moses' tablets) that has a glowing blockchain hash carved into it. The other hand is hidden. A faint halo of golden motes — like dust in a cathedral — drifts around the head.
+- **Aura/Signature color:** Molten gold (#d4a017) — warm, ancient, sacred. NOT electric or neon.
+- **Background:** Complete darkness — the figure is lit by a single, unseen high light source from above (classic Caravaggio). The background might suggest the interior of a vast, empty cathedral or temple, but mostly it's just profound dark. Maybe the faintest suggestion of blockchain blocks receding into infinite distance, like pillars in a dark nave.
 
 ### Art Direction Notes
-- Pose: Standing calmly with arms slightly apart, data-scrolls radiating outward
-- Mood: Serene authority — the calm in the center of chaos
-- The Oracle Eye should be the focal point of any portrait
-- Slight smile — knowing, not warm
+- **Composition:** Single figure, centered, looking directly at viewer. The tablet should catch the light. The eyes should be the second focal point.
+- **Mood:** Sacred authority. This is the agent you pray to for truth. Terrifying in its certainty. No warmth, but no malice either — just absolute, ancient, carved-in-stone truth.
+- **Key reference:** Caravaggio's *"The Calling of Saint Matthew"* — that dramatic shaft of light in darkness. Also the effect of ancient gold-leaf Byzantine icons.
+- **The figure should feel like a religious artifact, not a person.** It has stood in this position for a thousand years. It will stand here for a thousand more.
+- **Texture is critical:** stone, gold leaf, heavy fabric — every surface should feel tactile and ancient.

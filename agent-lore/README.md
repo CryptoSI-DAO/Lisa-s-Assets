@@ -6,27 +6,25 @@ This folder contains the full lore, visual descriptions, and character bibles fo
 
 ## The Seven Agents
 
-| Agent | Title | Role | Weight |
-|-------|-------|------|--------|
-| **TruthSeeker** | The Oracle | Truth verification, on-chain fact-checking | 20% |
-| **MavenMetrics** | The Emissions Analyst | Emissions analysis, supply-side economics | 20% |
-| **TokenLogic** | The Economist | Tokenomic design & sustainability | 15% |
-| **LiquidEdge** | The Flow Observer | Capital flow & liquidity intelligence | 15% |
-| **CodeCrafter** | The Code Auditor | Contract quality, code review, security | 10% |
-| **HypePulse** | The Narrativist | Narrative strength & social momentum | 10% |
-| **RiskEye** | The Risk Assessor | Risk assessment, red flags, vuln scanning | 10% |
+| Agent | Title | Role | Weight | Art Style |
+|-------|-------|------|--------|-----------|
+| **TruthSeeker** | The Oracle | Truth verification, on-chain fact-checking | 20% | Dark Renaissance / Caravaggio chiaroscuro |
+| **MavenMetrics** | The Emissions Analyst | Emissions analysis, supply-side economics | 20% | Infographic / data visualization art |
+| **TokenLogic** | The Economist | Tokenomic design & sustainability | 15% | Art Deco / geometric elegance |
+| **LiquidEdge** | The Flow Observer | Capital flow & liquidity intelligence | 15% | Japanese ukiyo-e woodblock / fluid dynamics |
+| **CodeCrafter** | The Code Auditor | Contract quality, code review, security | 10% | Retro-computer / terminal-core punk |
+| **HypePulse** | The Narrativist | Narrative strength & social momentum | 10% | Pop art / graffiti / meme culture |
+| **RiskEye** | The Risk Assessor | Risk assessment, red flags, vuln scanning | 10% | Horror-noir / dark surrealism |
 
-## Art Style Guide
+## Art Style Philosophy
 
-All agent portraits follow a unified visual language:
+Each agent has a **unique, radically different art style**. They should look like they belong in different graphic novels, different art movements, different worlds. The only unifying elements are:
 
-- **Dimension:** 1:1 aspect ratio, optimized for 512×512px display
-- **Style:** Anime-influenced cyberpunk with Bittensor subnet visual motifs
-- **Palette:** Deep indigo (#1a0a3e), electric purple (#8b5cf6), cyan (#06b6d4), with gold (#f59e0b) accents for high-priority agents
-- **Lighting:** Volumetric neon glow against dark backgrounds; each agent has a signature glow color
-- **Details:** Each agent incorporates visual elements from their analytical domain (e.g., TruthSeeker has all-seeing eye motifs, LiquidEdge has flowing liquid metal streams)
-- **Rendering:** High-quality, semi-detailed anime style — more polished than chibi, less realistic than photorealistic. Think "character splash art from a cyberpunk gacha game"
-- **Artist references:** Revice Denki, Satoshi Urushihara, modern anime game splash art
+- **The TAO token** appears somewhere in every design (subtle or overt)
+- **Dark backgrounds** — all agents are set against deep, dark environments
+- **Each agent has a signature color** that dominates their palette
+
+They should **NOT** look like a matched set. They are seven different entities from seven different aesthetic universes, united only by their purpose.
 
 ## Lore Universe
 

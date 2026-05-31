@@ -35,19 +35,23 @@ HypePulse knows the other agents think it's the least serious member. It's fine 
 
 ## Visual Description
 
+### Art Style
+**Pop Art / Graffiti / Meme Culture collide** — Day-Glo colors, comic-book halftone dots, spray-paint drips, stickers, layered collage, screen-print texture. Think: Banksy meets Takashi Murakami meets a very active subreddit. Every surface is covered with text, symbols, graphics, and internet culture artifacts. Maximum visual noise. Maximum energy.
+
 ### Character Design
-- **Form:** Compact, energetic, slightly larger-than-life. Female-presenting with a punk-pop aesthetic that feels like the most stylish person at a crypto conference.
-- **Face:** Expressive, animated features. Bright, mischievous eyes that dart around like they're reading 12 chat channels simultaneously. Warm golden-brown skin with holographic makeup that shifts color — matching the current "hype temperature" of whatever they're analyzing.
-- **Eyes:** Intensely bright magenta-pink (#ec4899) that literally glow brighter when they're excited about a narrative. Pupils are shaped like play buttons (▶️).
-- **Hair:** Voluminous, styled in a wild but intentional way — think cyberpunk festival look. Dyed in a gradient from electric pink to cyan, with holographic strands that catch light. Hair seems to move with its own energy, slightly defying gravity.
-- **Attire:** A cropped, asymmetric jacket covered in LED patches that display scrolling tweets, meme graphics, and sentiment meters. Fitted bodysuit underneath in hot pink/black. Platform boots. Multiple rings on each finger that are tiny screens.
-- **Accessories:** Oversized augmented-reality glasses (think futuristic Ray-Bans) that display social feeds, sentiment charts, and trending topics as holographic overlays. A microphone-shaped stylus for gesture-controlling data displays. Chains and pins with crypto community in-jokes.
-- **Aura/Glow:** Intense magenta-pink (#ec4899) with flashes of cyan — the loudest, most attention-grabbing aura of any agent
-- **Background motif:** A storm of social media elements — floating tweet bubbles, Discord chats, Telegram messages, Reddit threads, memes — all swirling around like a tornado of attention. Some are bright and large (viral content), others are small and fading (dead narratives)
+- **Form:** Compact, hyper-kinetic, androgynous. Small stature but physically *loud* — poses are wide, exaggerated, theatrical. Constant motion blur on extremities. Think of a street performer mid-act — big gestures, big energy, can't stand still.
+- **Face:** Expressive face that seems to change expression slightly every time you look at it (conveyed through motion lines, multiple exaggerated expressions layered). Dark brown skin with **neon highlight streaks** (pink, cyan, yellow) across the face like warpaint. Wide, gleaming white teeth in a huge grin.
+- **Eyes:** Massive, exaggerated anime-style eyes — the largest of any agent by far. irises are **different colors**: left eye hot pink (#ec4899), right eye cyan (#06b6d4). Pupils are tiny (with excitement/alertness). No subtlety — these eyes are *screaming*.
+- **Hair:** An enormous, gravity-defying mohawk-afro hybrid — a massive volume of hair that's been dyed, bleached, and styled into a sculptural explosion. Colors shift through pink → orange → yellow → green from root to tip. Stickers and small memes are *literally embedded in the hair* (like they were thrown there and stuck). A few small LED lights are woven in.
+- **Attire:** A **graffiti-covered denim jacket** — every inch covered in spray-painted tags, stickers, wheat-paste-style graphics, and hand-written slogans ("HYPE IS REAL," "W," "GM," diamond hands emoji). The jacket is open over a crop-top featuring a massive, screen-printed TAO token image rendered in classic Pop Art halftone dots (think Roy Lichtenstein dollar sign, but it's TAO). Baggy cargo pants with even more stickers and patches. Bright color-blocked sneakers (one pink, one cyan).
+- **Accessories:** Both hands are literally holding **plumes of colored smoke** or confetti — they're exploding outward from the hands in all directions. Floating around the figure: speech bubbles, emoji (🔥💎🙌), arrow symbols, "W" and "L" letters, rocket emojis, and tiny flying phone screens showing trending charts. A TAO token is worn as an oversized pendant medallion on a thick chain necklace, rendered in Pop Art style with Ben-Day dots.
+- **Aura/Signature color:** Hot pink (#ec4899) and cyan (#06b6d4) — *two signature colors simultaneously*, clashing deliberately. Maximum energy.
+- **Background:** Chaos. Walls covered in layered graffiti, posters, stickers, and street art — but all crypto-themed (project logos, moon charts, "WAGMI," diamond hands). The background is dense, layered, and looks like it's been built up over years of constant addition. Colors are oversaturated. Some areas are dripping (spray paint). Halftone dot patterns overlay everything. The floor is covered in scattered phone screens, each showing a different social media feed.
 
 ### Art Direction Notes
-- Pose: Dynamic, mid-gesture — pointing enthusiastically at a holographic social feed, body angled toward the viewer like about to share exciting news
-- Mood: The best friend who always knows what's about to trend before everyone else — fun, chaotic energy, but genuinely insightful underneath
-- This agent should be the most COLORFUL in the group — intentionally standing out from the more muted, dark-toned agents
-- The AR glasses are a key signature element — the data overlays visible through them should be a character in themselves
-- Hair should feel like it has its own personality — wild, voluminous, impossible to ignore
+- **Composition:** Dynamic wide pose — arms spread, legs apart, HAPPY. Floating/jumping slightly off the ground. Confetti and effects exploding outward. This character should fill the frame with energy — there should be NO empty space.
+- **Mood:** The most fun person at the party who also happens to be the most insightful. HypePulse is exhausting and magnetic in equal measure. It's right more often than anyone wants to admit, and it has the GIF receipts to prove it.
+- **Key reference:** Banksy (graffiti texture), Takashi Murakami (flat, loud, pop), Roy Lichtenstein (halftone dots), KAWS (X-ed out eyes motif — but HypePulse does NOT have Xed eyes — wide open), early internet meme culture aesthetic (Impact font, rage comics energy).
+- **The character must feel LIVED-IN and CHAOTIC** — not designed, but accumulated. Each sticker on the jacket tells a story. Each tag on the wall references a real crypto moment. It should feel like the bedroom wall of the most online person you know.
+- **EVERYTHING is labeled or marked** — text is everywhere. Slogans, hashtags, emojis, signals. HypePulse can't exist without words and symbols around it.
+- **This agent is the most DIFFERENT from the others** — while everyone else is dark, moody, and dramatic, HypePulse is bright, loud, and chaotic. The contrast is deliberate and essential.

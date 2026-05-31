@@ -6,25 +6,25 @@ This folder contains the full lore, visual descriptions, and character bibles fo
 
 ## The Seven Agents
 
-| Agent | Role | Weight | Former Name |
-|-------|------|--------|-------------|
-| **SubnetOracle** | Truth verification, on-chain fact-checking | 20% | TruthSeeker |
-| **EmissionMetrics** | Emissions analysis, supply-side economics | 20% | MavenMetrics |
-| **SubnetEconomics** | Tokenomic design & sustainability | 15% | TokenLogic |
-| **StakeFlow** | Capital flow & liquidity intelligence | 15% | LiquidEdge |
-| **OnChainChad** | Contract quality, code review, security | 10% | CodeCrafter |
-| **SubnetHype** | Narrative strength & social momentum | 10% | HypePulse |
-| **SubnetRisk** | Risk assessment, red flags, vuln scanning | 10% | RiskEye |
+| Agent | Title | Role | Weight |
+|-------|-------|------|--------|
+| **TruthSeeker** | The Oracle | Truth verification, on-chain fact-checking | 20% |
+| **MavenMetrics** | The Emissions Analyst | Emissions analysis, supply-side economics | 20% |
+| **TokenLogic** | The Economist | Tokenomic design & sustainability | 15% |
+| **LiquidEdge** | The Flow Observer | Capital flow & liquidity intelligence | 15% |
+| **CodeCrafter** | The Code Auditor | Contract quality, code review, security | 10% |
+| **HypePulse** | The Narrativist | Narrative strength & social momentum | 10% |
+| **RiskEye** | The Risk Assessor | Risk assessment, red flags, vuln scanning | 10% |
 
 ## Art Style Guide
 
 All agent portraits follow a unified visual language:
 
 - **Dimension:** 1:1 aspect ratio, optimized for 512×512px display
-- **Style:** Anime-influenced cyberpunk with Bittensor/Bittensor subnet visual motifs
+- **Style:** Anime-influenced cyberpunk with Bittensor subnet visual motifs
 - **Palette:** Deep indigo (#1a0a3e), electric purple (#8b5cf6), cyan (#06b6d4), with gold (#f59e0b) accents for high-priority agents
 - **Lighting:** Volumetric neon glow against dark backgrounds; each agent has a signature glow color
-- **Details:** Each agent incorporates visual elements from their analytical domain (e.g., SubnetOracle has all-seeing eye motifs, StakeFlow has flowing liquid metal streams)
+- **Details:** Each agent incorporates visual elements from their analytical domain (e.g., TruthSeeker has all-seeing eye motifs, LiquidEdge has flowing liquid metal streams)
 - **Rendering:** High-quality, semi-detailed anime style — more polished than chibi, less realistic than photorealistic. Think "character splash art from a cyberpunk gacha game"
 - **Artist references:** Revice Denki, Satoshi Urushihara, modern anime game splash art
 
@@ -34,10 +34,10 @@ The agents exist in a shared narrative: they are digital entities operating with
 
 See individual files for deep lore:
 
-- [subnet-oracle.md](./subnet-oracle.md) — The Oracle
-- [emission-metrics.md](./emission-metrics.md) — The Emissions Analyst
-- [subnet-economics.md](./subnet-economics.md) — The Economist
-- [stake-flow.md](./stake-flow.md) — The Flow Observer
-- [onchain-chad.md](./onchain-chad.md) — The Code Auditor
-- [subnet-hype.md](./subnet-hype.md) — The Narrativist
-- [subnet-risk.md](./subnet-risk.md) — The Risk Assessor
+- [truth-seeker.md](./truth-seeker.md) — The Oracle
+- [maven-metrics.md](./maven-metrics.md) — The Emissions Analyst
+- [token-logic.md](./token-logic.md) — The Economist
+- [liquid-edge.md](./liquid-edge.md) — The Flow Observer
+- [code-crafter.md](./code-crafter.md) — The Code Auditor
+- [hype-pulse.md](./hype-pulse.md) — The Narrativist
+- [risk-eye.md](./risk-eye.md) — The Risk Assessor

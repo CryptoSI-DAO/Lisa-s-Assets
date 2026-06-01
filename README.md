@@ -1,76 +1,68 @@
-# 🎯 Subnet Scorecards
+# 🎯 Lisa's Assets — Crypto Intelligence Platform
 
-> Bittensor subnet analysis scored by the Lisa Coefficient framework.
-> Each subnet is evaluated by 7 specialized agents, synthesized into a final Lisa Coefficient score (1-10).
+> Multi-ecosystem crypto analysis scored by the Lisa Coefficient framework.
+> Each project is evaluated by 7 specialized agents, synthesized into a final Lisa Coefficient score (1–10).
 
-## Latest Report
+## Ecosystems
 
-**May 2026** → [scorecards/may-2026.md](scorecards/may-2026.md)
+| Ecosystem | Status | Scorecards | Deep Dives |
+|-----------|--------|------------|------------|
+| **Bittensor (TAO)** | ✅ Live | [scorecards/](scorecards/) | 10 subnets scored |
+| **Hyperliquid (HYPE)** | ✅ Live | [hype-ecosystem/scorecards/](hype-ecosystem/scorecards/) | 5 projects scored |
+| **Ethereum (ETH)** | 🔜 Coming Soon | — | — |
 
-## Top Subnets — May 2026
+---
 
-| Rank | Subnet | Name | Lisa Coefficient | Verdict |
-|------|--------|------|-----------------|---------|
-| 1 | SN116 | TaoLend | 🔷 6.5 | Research Further |
-| 2 | SN80 | Dogelayer | 🔷 7.8 | **Hold / Conviction** |
-| 3 | SN40 | Chunking | 🔷 2.6 | Avoid |
-| 4 | SN58 | (Pending) | 🔷 1.2 | Avoid |
-| 5 | SN72 | StreetVision | 🔷 6.2 | Research Further |
-| 6 | SN92 | TensorClaw | 🔷 7.2 | **Watch** |
-| 7 | SN42 | Unknown | 🔷 1.0 | Avoid |
-| 8 | SN89 | InfiniteHash | 🔷 6.8 | Research Further |
-| 9 | SN86 | (Unnamed) | 🔷 1.0 | Avoid |
-| 10 | SN111 | oneoneone | 🔷 1.6 | Avoid |
+## Bittensor Subnets — May 2026
 
-## Repo Structure
+**Latest Report:** [scorecards/may-2026.md](scorecards/may-2026.md)
 
-```
-├── agents/                  # Scoring agent scripts
-│   ├── emission_metrics.py  # MavenMetrics → EmissionMetrics
-│   ├── subnet_economics.py  # TokenLogic → SubnetEconomics
-│   ├── onchain_chad.py      # CodeCrafter → OnChainChad
-│   ├── subnet_hype.py       # HypePulse → SubnetHype
-│   ├── subnet_oracle.py     # TruthSeeker → SubnetOracle
-│   ├── stake_flow.py        # LiquidEdge → StakeFlow
-│   └── subnet_risk.py       # RiskEye → SubnetRisk (synthesizes Lisa Coefficient)
-├── scorecards/              # Generated scorecard reports
-│   └── may-2026.md
-├── templates/               # Scorecard templates
-│   └── scorecard-template.md
-├── data/                    # Scraped on-chain data
-│   └── may-2026/
-├── website/                 # Static website for scorecards
-│   └── index.html
-└── README.md
-```
+| Rank | SN | Name | Lisa Coefficient | Verdict |
+|------|-----|------|-----------------|---------|
+| 1 | SN116 | TaoLend | 5.8 | 🔷 Research Further |
+| 2 | SN80 | Dogelayer | 7.4 | 🟢 Conviction |
+| 3 | SN40 | Chunking | 2.3 | 🔴 Avoid |
+| 4 | SN58 | (Pending) | 0.8 | 🔴 Avoid |
+| 5 | SN72 | StreetVision | 5.2 | 🔷 Research Further |
+| 6 | SN92 | TensorClaw | 5.9 | 🔷 Research Further |
+| 7 | SN42 | Unknown | 1.0 | 🔴 Avoid |
+| 8 | SN89 | InfiniteHash | 5.1 | 🔷 Research Further |
+| 9 | SN86 | (Unnamed) | 2.0 | 🔴 Avoid |
+| 10 | SN111 | oneoneone | 2.1 | 🔴 Avoid |
+
+---
+
+## Hyperliquid Ecosystem — June 2026
+
+**Overview:** [hype-ecosystem/README.md](hype-ecosystem/README.md)
+
+| Project | Category | Lisa Coefficient | Verdict |
+|---------|----------|-----------------|---------|
+| **Kinetiq** | Liquid Staking | 8.1 | 🟢 Strong Hold |
+| **HyperLend** | Lending | 6.8 | 🔷 Research Further |
+| **Felix Protocol** | Stablecoin/Lending | 6.2 | 🔷 Research Further |
+| **KittenSwap** | DEX | 5.8 | 🔷 Research Further |
+| **Purr** | Community | 5.4 | 🟡 Watch |
+
+**Key Stats:**
+- HYPE: $72.24 | MCap: $16B | 30d: +72%
+- HyperEVM DeFi TVL: $1.6B (24 protocols, 113 pools)
+- Liquid Staking TVL: $1.44B (Kinetiq 83% share)
+- Builder Revenue: $80.8M all-time
+
+---
 
 ## The 7 Agents
 
-| Agent | Emoji | Role | What It Measures |
-|-------|-------|------|-----------------|
-| **EmissionMetrics** | 🧮 | Emission Analyst | Daily emission, TAO/α inflow, emission trend, pruning rank |
-| **SubnetEconomics** | 📊 | Subnet Economist | Lockup, burn, α/τ ratio, recycling, registration cost |
-| **OnChainChad** | 👨‍💻 | Code & Dev Auditor | GitHub activity, code quality, open source presence |
-| **SubnetHype** | 🔥 | Community Tracker | Discord, Twitter, social sentiment, organic growth |
-| **SubnetOracle** | 🔍 | Fundamentals Investigator | Use case, team, partnerships, real-world utility |
-| **StakeFlow** | 💧 | Staking Analyst | TAO staking, validator count, stake distribution |
-| **SubnetRisk** | ⚠️ | Risk Profiler | Synthesizes all agents → Lisa Coefficient (1-10) |
-
-## Scoring Methodology
-
-Each agent scores 1–10. The SubnetRisk agent synthesizes with weighted aggregation:
-
-```
-Lisa Coefficient = (
-    EmissionMetrics × 0.20 +
-    SubnetEconomics × 0.15 +
-    OnChainChad × 0.10 +
-    SubnetHype × 0.10 +
-    SubnetOracle × 0.20 +
-    StakeFlow × 0.15 +
-    RiskProfile × 0.10
-)
-```
+| Agent | Emoji | Role | Weight |
+|-------|-------|------|--------|
+| **TruthSeeker** | 🔍 | Fundamentals Investigator | 20% |
+| **MavenMetrics** | 🧮 | On-Chain Metrics Analyst | 20% |
+| **LiquidEdge** | 💧 | Liquidity Analyst | 15% |
+| **TokenLogic** | 📊 | Tokenomics Analyst | 15% |
+| **HypePulse** | 🔥 | Community Tracker | 10% |
+| **CodeCrafter** | 👨‍💻 | Code & Dev Auditor | 10% |
+| **RiskEye** | ⚠️ | Risk Profiler | 10% |
 
 ## Verdict Scale
 
@@ -84,4 +76,5 @@ Lisa Coefficient = (
 
 ---
 
-*Built with 💜 by the Lisa's Assets framework. Scorecards auto-generated monthly.*
+*Built with 💜 by the Lisa's Assets framework. The ultimate assets for alpha seekers 🎯*
+*Scorecards auto-generated monthly.*

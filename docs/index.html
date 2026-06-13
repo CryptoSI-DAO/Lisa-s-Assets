@@ -55,21 +55,40 @@
     <p class="tagline">Decentralized AI Subnet Intelligence</p>
   </div>
   <div class="container">
-    <div id="market-bar" class="market-bar"></div>
+    <div id="tao-market-bar" class="market-bar"></div>
     <h2 class="section-title">📊 Score Summary</h2>
-    <div id="score-table"></div>
-    <div id="subnet-cards"></div>
+    <div id="tao-score-table"></div>
+    <div id="tao-subnet-cards"></div>
   </div>
 </section>
 
-<!-- COMING SOON (ETH / HYPE) -->
-<section id="page-coming" class="page" aria-hidden="true">
+<!-- ETHEREUM -->
+<section id="page-eth" class="page" aria-hidden="true">
+  <div class="hero" style="padding:2.5rem 1.5rem 2rem;">
+    <div class="breadcrumb"><a href="#home">Lisa's Assets</a> / Ethereum</div>
+    <h1 style="font-size:2.2rem;">⟠ Ethereum</h1>
+    <p class="tagline">DeFi Blue Chips & Infrastructure</p>
+  </div>
   <div class="container">
-    <div class="empty-state">
-      <div class="icon">🚧</div>
-      <h3>Coming Soon</h3>
-      <p>This ecosystem section is under construction. Check back soon for scorecards.</p>
-    </div>
+    <div id="eth-market-bar" class="market-bar"></div>
+    <h2 class="section-title">📊 Score Summary</h2>
+    <div id="eth-score-table"></div>
+    <div id="eth-project-cards"></div>
+  </div>
+</section>
+
+<!-- HYPERLIQUID -->
+<section id="page-hype" class="page" aria-hidden="true">
+  <div class="hero" style="padding:2.5rem 1.5rem 2rem;">
+    <div class="breadcrumb"><a href="#home">Lisa's Assets</a> / Hyperliquid</div>
+    <h1 style="font-size:2.2rem;">⚡ Hyperliquid</h1>
+    <p class="tagline">Perpetuals, LPs, and Native Infrastructure</p>
+  </div>
+  <div class="container">
+    <div id="hype-market-bar" class="market-bar"></div>
+    <h2 class="section-title">📊 Score Summary</h2>
+    <div id="hype-score-table"></div>
+    <div id="hype-project-cards"></div>
   </div>
 </section>
 
@@ -105,50 +124,89 @@
   Theme.init();
 
   // ═══ LOAD DATA & RENDER ═══
-  var DATA_URL = 'data/subnets-may-2026.json';
-  fetch(DATA_URL).then(function(r) { return r.json(); }).then(renderAll).catch(function(e) {
-    document.body.innerHTML = '<p style="padding:2rem;color:var(--red)">Data load failed: ' + e.message + '</p>';
+  var TAO_DATA = 'data/subnets-may-2026.json';
+  var ETH_DATA = 'data/eth-ecosystem.json';
+
+  // Load TAO data
+  fetch(TAO_DATA).then(function(r) { return r.json(); }).then(function(data) {
+    renderTaoEcosystem(data);
+    renderEcosystemGrid(data);
+    Router.init();
+  }).catch(function(e) {
+    document.getElementById('tao-score-table').innerHTML = '<p style="color:var(--red)">Data load failed: ' + e.message + '</p>';
   });
 
-  function renderAll(data) {
-    renderEcosystems(data);
-    renderMarketBar(data.meta);
-    document.getElementById('score-table').innerHTML = Renderer.renderScoreTable(data.subnets, data.weights, data.verdicts);
-    document.getElementById('subnet-cards').innerHTML = Renderer.renderSubnetCards(data.subnets, data.weights, data.verdicts);
-    Router.init();
-  }
+  // Load ETH data
+  fetch(ETH_DATA).then(function(r) { return r.json(); }).then(function(data) {
+    renderEthEcosystem(data);
+  }).catch(function(e) {
+    document.getElementById('eth-score-table').innerHTML = '<p style="color:var(--red)">Data load failed: ' + e.message + '</p>';
+  });
 
-  function renderEcosystems(data) {
-    var ids = ['tao', 'eth', 'hype'], html = '', eco, stats, i, s;
-    for (i = 0; i < ids.length; i++) {
-      eco = data.ecosystems[ids[i]];
-      if (!eco) continue;
-      stats = (eco.stats && eco.stats.length) ? eco.stats.map(function(st) {
-        return '<div class="eco-stat"><div class="label">' + st.label + '</div><div class="value">' + st.value + '</div></div>';
-      }).join('') : '';
-      html += '<div class="eco-card' + (eco.status === 'coming' ? ' coming' : '') + '" onclick="location.hash=\'' + ids[i] + '\'">'
-        + (eco.status === 'coming' ? '<div class="tag-coming">Coming Soon</div>' : '')
-        + '<div class="eco-icon">' + eco.icon + '</div>'
-        + '<h3>' + eco.name + '</h3>'
-        + '<p>' + eco.coming_reason + '</p>'
-        + '<div class="eco-stats">' + stats + '</div></div>';
-    }
-    document.getElementById('ecosystem-grid').innerHTML = html;
-  }
-
-  function renderMarketBar(meta) {
+  function renderTaoEcosystem(data) {
+    // Market bar
     var stats = [
-      { label: 'TAO', value: '$' + meta.tao_price },
-      { label: 'MCap', value: '$' + meta.tao_market_cap + 'B' },
-      { label: 'Issuance', value: (meta.daily_issuance / 1000).toFixed(1) + 'Kτ/day' },
-      { label: 'Block', value: meta.block_reward + 'τ' },
-      { label: 'Halving', value: meta.next_halving.split('-')[0] }
+      { label: 'TAO', value: '$' + data.meta.tao_price },
+      { label: 'MCap', value: '$' + data.meta.tao_market_cap + 'B' },
+      { label: 'Issuance', value: (data.meta.daily_issuance / 1000).toFixed(1) + 'Kτ/day' },
+      { label: 'Block', value: data.meta.block_reward + 'τ' },
+      { label: 'Halving', value: data.meta.next_halving.split('-')[0] }
     ];
     var html = '';
     for (var i = 0; i < stats.length; i++) {
       html += '<div class="market-stat"><div class="label">' + stats[i].label + '</div><div class="value">' + stats[i].value + '</div></div>';
     }
-    document.getElementById('market-bar').innerHTML = html;
+    document.getElementById('tao-market-bar').innerHTML = html;
+
+    // Score table and cards
+    document.getElementById('tao-score-table').innerHTML = Renderer.renderScoreTable(data.subnets, data.weights, data.verdicts);
+    document.getElementById('tao-subnet-cards').innerHTML = Renderer.renderSubnetCards(data.subnets, data.weights, data.verdicts);
+  }
+
+  function renderEthEcosystem(data) {
+    // Market bar
+    var stats = [
+      { label: 'ETH', value: '$' + data.meta.eth_price.toLocaleString() },
+      { label: 'MCap', value: '$' + data.meta.eth_market_cap + 'B' },
+      { label: 'DeFi TVL', value: '$' + data.meta.total_defi_tvl + 'B' },
+      { label: 'Staked', value: data.meta.eth_staked_pct + '%' },
+      { label: 'Burn', value: data.meta.eth_burn_rate }
+    ];
+    var html = '';
+    for (var i = 0; i < stats.length; i++) {
+      html += '<div class="market-stat"><div class="label">' + stats[i].label + '</div><div class="value">' + stats[i].value + '</div></div>';
+    }
+    document.getElementById('eth-market-bar').innerHTML = html;
+
+    // Score table and cards
+    document.getElementById('eth-score-table').innerHTML = Renderer.renderProjectTable(data.projects, data.weights, data.verdicts);
+    document.getElementById('eth-project-cards').innerHTML = Renderer.renderProjectCards(data.projects, data.weights, data.verdicts);
+  }
+
+  function renderEcosystemGrid(data) {
+    var ids = ['tao', 'eth', 'hype'], html = '';
+    for (var i = 0; i < ids.length; i++) {
+      var eco = data.ecosystems[ids[i]];
+      if (!eco) continue;
+      var statsHtml = '';
+      if (eco.stats) {
+        if (Array.isArray(eco.stats)) {
+          statsHtml = eco.stats.map(function(st) {
+            return '<div class="eco-stat"><div class="label">' + st.label + '</div><div class="value">' + st.value + '</div></div>';
+          }).join('');
+        } else {
+          Object.keys(eco.stats).forEach(function(k) {
+            statsHtml += '<div class="eco-stat"><div class="label">' + k + '</div><div class="value">' + eco.stats[k] + '</div></div>';
+          });
+        }
+      }
+      html += '<a class="eco-card" href="#' + ids[i] + '">'
+        + '<div class="eco-icon">' + eco.icon + '</div>'
+        + '<h3>' + eco.name + '</h3>'
+        + '<p>' + (eco.coming_reason || eco.status) + '</p>'
+        + '<div class="eco-stats">' + statsHtml + '</div></a>';
+    }
+    document.getElementById('ecosystem-grid').innerHTML = html;
   }
 })();
 </script>

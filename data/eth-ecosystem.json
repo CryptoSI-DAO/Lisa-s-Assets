@@ -1,0 +1,265 @@
+{
+  "meta": {
+    "date": "2026-06-13",
+    "eth_price": 1665.32,
+    "eth_market_cap": 201,
+    "eth_staked_pct": 28,
+    "total_defi_tvl": 50,
+    "eth_burn_rate": "500-1500 ETH/day"
+  },
+  "ecosystems": {
+    "tao": {
+      "name": "TAO Bittensor",
+      "icon": "🌐",
+      "path": "tao",
+      "status": "active",
+      "stats": { "subnets": 128, "scored": 10 }
+    },
+    "eth": {
+      "name": "Ethereum",
+      "icon": "⟠",
+      "path": "eth",
+      "status": "active",
+      "stats": [
+        { "label": "ETH", "value": "$1,665" },
+        { "label": "MCap", "value": "$201B" },
+        { "label": "DeFi TVL", "value": "$50B" },
+        { "label": "Staked", "value": "28%" }
+      ]
+    },
+    "hype": {
+      "name": "HYPE",
+      "icon": "⚡",
+      "path": "hype",
+      "status": "active",
+      "stats": [
+        { "label": "HYPE", "value": "$72.24" },
+        { "label": "MCap", "value": "$16B" },
+        { "label": "DeFi TVL", "value": "$1.6B" },
+        { "label": "Validators", "value": "27" }
+      ]
+    }
+  },
+  "weights": {
+    "truthSeeker": 0.20,
+    "mavenMetrics": 0.20,
+    "liquidEdge": 0.15,
+    "tokenLogic": 0.15,
+    "hypePulse": 0.10,
+    "codeCrafter": 0.10,
+    "riskEye": 0.10
+  },
+  "verdicts": {
+    "strong_hold":  { "min": 8.0, "label": "Strong Hold",    "color": "green",  "icon": "🟢" },
+    "research":    { "min": 6.0, "label": "Research Further","color": "blue",   "icon": "🔷" },
+    "watch":       { "min": 4.0, "label": "Watch",          "color": "yellow", "icon": "🟡" },
+    "caution":     { "min": 2.0, "label": "Caution",        "color": "orange", "icon": "🟠" },
+    "avoid":       { "min": 1.0, "label": "Avoid",          "color": "red",    "icon": "🔴" }
+  },
+  "projects": [
+    {
+      "id": "lido",
+      "name": "Lido",
+      "website": "https://lido.fi",
+      "github": "https://github.com/lidofinance",
+      "category": "Liquid Staking",
+      "token": "LDO",
+      "tokenPrice": 0.26,
+      "mcap": 218,
+      "fdv": 259,
+      "tvl": 14840000000,
+      "tvl30dChange": -24.0,
+      "description": "Dominant liquid staking protocol. Users stake ETH → receive stETH (rebasing token that accrues staking rewards). $14.84B TVL, ~50% LST market share. Essential DeFi infrastructure.",
+      "scores": { "truthSeeker": 9, "mavenMetrics": 9, "liquidEdge": 8, "tokenLogic": 7, "hypePulse": 8, "codeCrafter": 8, "riskEye": 7 },
+      "details": { "rank": 1, "featured": true },
+      "bull_case": [
+        "Dominant LST with 50% market share — monopoly-level position",
+        "FDV/TVL of 0.015 is absurdly low — deeply undervalued",
+        "stETH is the most composable asset in DeFi — used everywhere",
+        "$100M+ annual revenue from real yield (not emissions)",
+        "DVT integration addresses centralization concerns"
+      ],
+      "bear_case": [
+        "50% staking share is a systemic risk",
+        "LDO token doesn't directly accrue revenue (governance only)",
+        "Regulatory risk: LSTs may be classified as securities",
+        "Competition from Rocket Pool, Coinbase cbETH"
+      ]
+    },
+    {
+      "id": "aave",
+      "name": "Aave",
+      "website": "https://aave.com",
+      "github": "https://github.com/aave",
+      "category": "Lending",
+      "token": "AAVE",
+      "tokenPrice": 170,
+      "mcap": 990,
+      "fdv": 1100,
+      "tvl": 12300000000,
+      "tvl30dChange": -14.4,
+      "description": "Largest decentralized lending protocol. $12.30B TVL across 10+ chains. Omnichain expansion with GHO stablecoin. AAVE Safety Module captures protocol fees.",
+      "scores": { "truthSeeker": 9, "mavenMetrics": 8, "liquidEdge": 7, "tokenLogic": 8, "hypePulse": 7, "codeCrafter": 9, "riskEye": 7 },
+      "details": { "rank": 2, "featured": true },
+      "bull_case": [
+        "Dominant lending protocol with $12.30B TVL across 10+ chains",
+        "GHO stablecoin creates internal demand and revenue",
+        "AAVE Safety Module directly captures protocol fees",
+        "Best-in-class security track record (no major exploits)",
+        "Omnichain strategy positions Aave as the lending layer of all chains"
+      ],
+      "bear_case": [
+        "Morpho is competing with peer-to-peer matching",
+        "TVL spread across 10+ chains dilutes focus",
+        "GHO is small vs. USDC/USDT — needs to scale 10x",
+        "Smart contract risk increases with each new chain"
+      ]
+    },
+    {
+      "id": "sky",
+      "name": "Sky (Maker)",
+      "website": "https://sky.money",
+      "github": "https://github.com/makerdao",
+      "category": "Stablecoin/Lending",
+      "token": "SKY",
+      "tokenPrice": 0.06,
+      "mcap": 1300,
+      "fdv": 1800,
+      "tvl": 6030000000,
+      "tvl30dChange": -5.0,
+      "description": "RWA-backed stablecoin protocol (formerly MakerDAO). USDS stablecoin backed by ETH + US Treasury bills. DSR offers ~5-8% yield from real assets. $6.03B TVL.",
+      "scores": { "truthSeeker": 8, "mavenMetrics": 8, "liquidEdge": 7, "tokenLogic": 6, "hypePulse": 6, "codeCrafter": 8, "riskEye": 6 },
+      "details": { "rank": 3 },
+      "bull_case": [
+        "RWA-backed stablecoin is a genuine innovation",
+        "DSR yield (~5-8%) attracts capital in all market conditions",
+        "USDS is censorship-resistant (unlike USDC)",
+        "Battle-tested protocol (since 2017) with no major exploits",
+        "Real revenue from real assets"
+      ],
+      "bear_case": [
+        "RWA concentration: if US Treasury yields drop, DSR yield drops",
+        "Regulatory risk: RWA protocols are a clear target",
+        "Rebrand from Maker → Sky confused the community",
+        "Competition from Ethena (USDe) in synthetic dollar space"
+      ]
+    },
+    {
+      "id": "pendle",
+      "name": "Pendle",
+      "website": "https://pendle.finance",
+      "github": "https://github.com/pendle-finance",
+      "category": "Yield Tokenization",
+      "token": "PENDLE",
+      "tokenPrice": 1.27,
+      "mcap": 216,
+      "fdv": 340,
+      "tvl": 1170000000,
+      "tvl30dChange": -21.0,
+      "description": "Yield tokenization protocol. Splits yield-bearing assets into PT (principal) and YT (yield) tokens. $1.17B TVL. Category leader in a genuinely new DeFi primitive.",
+      "scores": { "truthSeeker": 8, "mavenMetrics": 6, "liquidEdge": 5, "tokenLogic": 7, "hypePulse": 7, "codeCrafter": 7, "riskEye": 6 },
+      "details": { "rank": 4 },
+      "bull_case": [
+        "Yield tokenization is a genuinely new primitive — category leader",
+        "Integration with Ethena (sUSDe) created a powerful flywheel",
+        "vePENDLE model aligns long-term holders",
+        "As more yield-bearing assets emerge, Pendle's TAM grows",
+        "Fee sharing is improving token value accrual"
+      ],
+      "bear_case": [
+        "Complex product — most users don't understand PT/YT mechanics",
+        "TVL is concentrated in a few pools (sUSDe, stETH)",
+        "If yield rates decline, less incentive to tokenize",
+        "-21% 30d TVL decline is concerning"
+      ]
+    },
+    {
+      "id": "ethena",
+      "name": "Ethena",
+      "website": "https://ethena.fi",
+      "github": "https://github.com/ethena-labs",
+      "category": "Synthetic Dollar",
+      "token": "ENA",
+      "tokenPrice": 0.078,
+      "mcap": 723,
+      "fdv": 1200,
+      "tvl": 4840000000,
+      "tvl30dChange": -7.2,
+      "description": "Synthetic dollar (USDe) backed by delta-neutral strategy: long ETH staking + short perps. $4.84B TVL. Yield depends on perpetual funding rates staying positive.",
+      "scores": { "truthSeeker": 6, "mavenMetrics": 7, "liquidEdge": 5, "tokenLogic": 4, "hypePulse": 7, "codeCrafter": 6, "riskEye": 4 },
+      "details": { "rank": 5 },
+      "bull_case": [
+        "$4.84B TVL in 1.5 years — explosive growth",
+        "Real yield from funding rates (not emissions)",
+        "Delta-neutral strategy is elegant and scalable",
+        "USDe is censorship-resistant (unlike USDC)",
+        "Integration with Pendle (sUSDe) creates powerful DeFi primitive"
+      ],
+      "bear_case": [
+        "Funding rate risk: if perps go negative, USDe yield = 0%",
+        "Relies on CEXs (Binance, Bybit) for hedging — centralization",
+        "Regulatory: synthetic dollars are a clear target",
+        "ENA token has no fee sharing, heavy emissions"
+      ]
+    },
+    {
+      "id": "rocket-pool",
+      "name": "Rocket Pool",
+      "website": "https://rocketpool.net",
+      "github": "https://github.com/rocket-pool",
+      "category": "Liquid Staking",
+      "token": "RPL",
+      "tokenPrice": 1.38,
+      "mcap": 31,
+      "fdv": 35,
+      "tvl": 890000000,
+      "tvl30dChange": -26.3,
+      "description": "Decentralized liquid staking protocol. Only truly decentralized LST — anyone can run a validator with 8 ETH. $0.89B TVL, ~3% market share. RPL is deeply undervalued (FDV/TVL 0.04).",
+      "scores": { "truthSeeker": 7, "mavenMetrics": 4, "liquidEdge": 4, "tokenLogic": 8, "hypePulse": 4, "codeCrafter": 8, "riskEye": 5 },
+      "details": { "rank": 6 },
+      "bull_case": [
+        "Only truly decentralized LST — critical for Ethereum's health",
+        "RPL is deeply undervalued (FDV/TVL 0.04)",
+        "DVT adoption could scale without sacrificing decentralization",
+        "Battle-tested, no exploits, strong community",
+        "If Lido faces regulatory action, Rocket Pool is the natural beneficiary"
+      ],
+      "bear_case": [
+        "3% market share vs. Lido's 50% — the gap is widening",
+        "rETH liquidity is thin — high slippage for large trades",
+        "RPL token emissions are inflationary (no buyback)",
+        "-26.3% 30d TVL decline suggests outflows"
+      ]
+    },
+    {
+      "id": "eigenlayer",
+      "name": "EigenLayer",
+      "website": "https://eigenlayer.xyz",
+      "github": "https://github.com/Layr-Labs/eigenlayer-contracts",
+      "category": "Restaking",
+      "token": "EIGEN",
+      "tokenPrice": 0.18,
+      "mcap": 132,
+      "fdv": 270,
+      "tvl": 4640000000,
+      "tvl30dChange": -36.7,
+      "description": "Restaking infrastructure — ETH stakers opt-in to secure additional services (AVS). $4.64B TVL but -36.7% 30d decline. AVS marketplace is early and unproven.",
+      "scores": { "truthSeeker": 6, "mavenMetrics": 4, "liquidEdge": 4, "tokenLogic": 4, "hypePulse": 5, "codeCrafter": 7, "riskEye": 4 },
+      "details": { "rank": 7 },
+      "bull_case": [
+        "Restaking is a genuinely new primitive — powerful if AVS matures",
+        "$4.64B TVL (even after decline) shows real demand",
+        "First-mover advantage in restaking — no direct competitor at scale",
+        "If AVS adoption accelerates, EigenLayer becomes critical infrastructure",
+        "EIGEN is cheap (MCap $132M) if the thesis plays out"
+      ],
+      "bear_case": [
+        "-36.7% 30d TVL decline — capital is leaving",
+        "AVS ecosystem is mostly points farming — not real demand",
+        "EIGEN token has no fee sharing — pure governance token",
+        "Heavy token unlocks ahead — sell pressure",
+        "If AVS adoption doesn't accelerate, becomes an expensive experiment"
+      ]
+    }
+  ]
+}

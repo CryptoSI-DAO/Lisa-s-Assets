@@ -4,7 +4,7 @@
  * Pages use .page class (display:none) or #page-home (default visible).
  */
 var Router = (() => {
-  const pages = ['home', 'tao', 'coming'];
+  const pages = ['home', 'tao', 'eth', 'hype'];
 
   function init() {
     window.addEventListener('hashchange', route);
@@ -17,10 +17,8 @@ var Router = (() => {
     // Show/hide sections
     document.getElementById('page-home').setAttribute('aria-hidden', hash !== 'home');
     document.getElementById('page-tao').setAttribute('aria-hidden', hash !== 'tao');
-
-    const coming = document.getElementById('page-coming');
-    const isComing = (hash === 'eth' || hash === 'hype');
-    coming.style.display = isComing ? '' : 'none';
+    document.getElementById('page-eth').setAttribute('aria-hidden', hash !== 'eth');
+    document.getElementById('page-hype').setAttribute('aria-hidden', hash !== 'hype');
 
     // Nav active state
     document.querySelectorAll('.nav-link[data-route]').forEach(l => {
@@ -28,5 +26,11 @@ var Router = (() => {
     });
   }
 
-  return { init };
+  function showProject(id) {
+    // Scroll to project card within a page
+    const el = document.getElementById('card-' + id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  return { init, showProject };
 })();

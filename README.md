@@ -7,9 +7,9 @@
 
 | Ecosystem | Status | Scorecards | Deep Dives |
 |-----------|--------|------------|------------|
-| **Bittensor (TAO)** | ✅ Live | [scorecards/](scorecards/) | 10 subnets scored |
-| **Hyperliquid (HYPE)** | ✅ Live | [hype-ecosystem/scorecards/](hype-ecosystem/scorecards/) | 5 projects scored |
-| **Ethereum (ETH)** | 🔜 Coming Soon | — | — |
+|| **Bittensor (TAO)** | ✅ Live | [scorecards/](scorecards/) | 10 subnets scored |
+|| **Ethereum (ETH)** | ✅ Live | [eth-ecosystem/scorecards/](eth-ecosystem/scorecards/) | 7 projects scored |
+|| **Hyperliquid (HYPE)** | ✅ Live | [hype-ecosystem/scorecards/](hype-ecosystem/scorecards/) | 5 projects scored |
 
 ---
 

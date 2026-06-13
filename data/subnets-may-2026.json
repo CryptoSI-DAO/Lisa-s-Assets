@@ -20,15 +20,15 @@
       "name": "Ethereum",
       "icon": "⟠",
       "path": "eth",
-      "status": "coming",
-      "coming_reason": "DeFi protocols, L2s, and infrastructure projects"
+      "status": "active",
+      "stats": { "projects": 7, "scored": 7 }
     },
     "hype": {
       "name": "HYPE",
       "icon": "⚡",
       "path": "hype",
-      "status": "coming",
-      "coming_reason": "Perpetuals, LPs, and native infrastructure"
+      "status": "active",
+      "stats": { "projects": 5, "scored": 5 }
     }
   },
   "weights": {

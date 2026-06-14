@@ -96,7 +96,8 @@ def test_coefficient_rounded_to_two_decimals():
 # --------------------------------------------------------------------------- #
 # Agent imports
 # --------------------------------------------------------------------------- #
-def test_all_seven_agents_importable():
+def test_all_specialist_agents_importable():
+    # All 7 specialists PLUS the LisaKim meta-agent
     expected = {
         "EmissionMetricsAgent",
         "SubnetOracleAgent",
@@ -105,6 +106,7 @@ def test_all_seven_agents_importable():
         "HypePulseAgent",
         "CodeCrafterAgent",
         "RiskEyeAgent",
+        "LisaKimAgent",
     }
     assert set(agents.__all__) == expected
     for cls in ALL_AGENTS:

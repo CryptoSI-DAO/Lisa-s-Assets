@@ -156,7 +156,20 @@ def test_risk_eye_score_in_range():
 
 
 # --------------------------------------------------------------------------- #
-# unittest entry point (so the file also works with python -m unittest / direct run)
+# Direct-run entry point.
+# Primary runner is `python -m pytest tests/ -v`. This block lets the file run
+# standalone too, by invoking every `test_*` function defined above.
 # --------------------------------------------------------------------------- #
 if __name__ == "__main__":
-    unittest.main()
+    _funcs = [v for k, v in sorted(globals().items())
+              if k.startswith("test_") and callable(v)]
+    failures = 0
+    for fn in _funcs:
+        try:
+            fn()
+            print(f"PASS {fn.__name__}")
+        except Exception as e:  # noqa: BLE001
+            failures += 1
+            print(f"FAIL {fn.__name__}: {type(e).__name__}: {e}")
+    print(f"\n{len(_funcs) - failures}/{len(_funcs)} tests passed")
+    sys.exit(1 if failures else 0)

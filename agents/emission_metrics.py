@@ -11,7 +11,12 @@ import asyncio
 import json
 from dataclasses import dataclass
 from typing import Optional
-from async_substrate_interface import AsyncSubstrateInterface
+
+try:
+    from async_substrate_interface import AsyncSubstrateInterface
+    HAS_SUBSTRATE = True
+except ImportError:
+    HAS_SUBSTRATE = False
 
 FINNEY_WSS = "wss://entrypoint-finney.opentensor.ai:443"
 

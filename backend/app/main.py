@@ -18,7 +18,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from . import __version__, db
 from .config import get_settings
 from .models.schemas import HealthResponse
-from .routers import newsletter, payments, projects, reports
+from .routers import crowdfund, nft, newsletter, payments, projects, reports
 
 logging.basicConfig(
     level=logging.INFO,
@@ -69,6 +69,8 @@ app.include_router(projects.router)
 app.include_router(reports.router)
 app.include_router(payments.router)
 app.include_router(newsletter.router)
+app.include_router(crowdfund.router)
+app.include_router(nft.router)
 
 
 @app.get("/health", response_model=HealthResponse, tags=["meta"])

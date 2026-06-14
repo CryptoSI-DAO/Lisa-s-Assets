@@ -19,7 +19,7 @@ try:
 except ImportError:
     HAS_SUBSTRATE = False
 
-FINNEY_WSS = "wss://entrypoint-finney.opnetensor.ai:443"  # noqa: placeholder
+FINNEY_WSS = "wss://entrypoint-finney.opentensor.ai:443"
 
 
 # Pre-researched dev audit/activity signals per subnet.

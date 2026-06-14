@@ -4,3 +4,6 @@ research_config.yaml
 .coordinator/
 results/
 cache_old_*/
+backend/.venv/
+__pycache__/
+backend/__pycache__/

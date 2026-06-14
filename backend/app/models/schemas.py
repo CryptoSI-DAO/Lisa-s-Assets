@@ -113,6 +113,64 @@ class VerifyResponse(BaseModel):
 
 
 # ---------------------------------------------------------------------------
+# Crowdfunding pools
+# ---------------------------------------------------------------------------
+class CrowdfundCreate(BaseModel):
+    """Request body for POST /api/crowdfund/create."""
+    project_id: str
+    coingecko_id: Optional[str] = None
+    target_amount: float = 9.99
+
+
+class CrowdfundContribute(BaseModel):
+    """Request body for POST /api/crowdfund/{pool_id}/contribute."""
+    wallet_address: str
+    amount: float
+    tx_hash: Optional[str] = None
+
+
+class CrowdfundPool(BaseModel):
+    id: str
+    project_id: str
+    coingecko_id: Optional[str] = None
+    target_amount: float
+    current_amount: float
+    contributors_count: int
+    status: str
+    report_id: Optional[str] = None
+    created_at: datetime
+    funded_at: Optional[datetime] = None
+    progress_pct: float = 0.0
+
+
+class CrowdfundContributionRow(BaseModel):
+    id: str
+    pool_id: str
+    wallet_address: str
+    amount: float
+    tx_hash: Optional[str] = None
+    created_at: datetime
+
+
+class CrowdfundContributeResponse(BaseModel):
+    contributed: bool
+    pool_id: str
+    current_amount: float
+    contributors_count: int
+    status: str
+    message: str = ""
+
+
+class TokenDiscountResponse(BaseModel):
+    wallet_address: str
+    discounted: bool
+    tokens_held: dict[str, float]
+    discount_rate: float
+    threshold: float
+    qualifying_token: Optional[str] = None
+
+
+# ---------------------------------------------------------------------------
 # Newsletter
 # ---------------------------------------------------------------------------
 class NewsletterSubscribe(BaseModel):

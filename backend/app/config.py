@@ -55,6 +55,17 @@ class Settings:
     # mode). Flip to True once paid access goes live.
     PAYMENT_REQUIRED: bool = os.getenv("PAYMENT_REQUIRED", "false").lower() == "true"
 
+    # Discount tokens (LISA / SOONAK / CRDD). Contract/mint addresses are left
+    # empty by default — populate via env vars before going live.
+    LISA_TOKEN_CONTRACT: str = os.getenv("LISA_TOKEN_CONTRACT", "")  # Base
+    SOONAK_MINT: str = os.getenv("SOONAK_MINT", "")  # Solana SPL mint
+    CRDD_TOKEN_CONTRACT: str = os.getenv("CRDD_TOKEN_CONTRACT", "")  # Arbitrum
+    ARBITRUM_RPC_URL: str = os.getenv("ARBITRUM_RPC_URL", "https://arb1.arbitrum.io/rpc")
+    SOLANA_RPC_URL: str = os.getenv(
+        "SOLANA_RPC_URL", "https://api.mainnet-beta.solana.com"
+    )
+    DISCOUNT_THRESHOLD: float = float(os.getenv("DISCOUNT_THRESHOLD", "10000"))
+
     @property
     def async_database_url(self) -> str:
         """Return the DATABASE_URL in asyncpg-compatible form."""

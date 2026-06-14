@@ -46,9 +46,9 @@ class StakeFlowAgent:
         if HAS_SUBSTRATE:
             try:
                 async with AsyncSubstrateInterface(FINNEY_WSS) as sub:
-                    # SubnetworkN gives active neuron (miner) count
+                    # SubnetworkN gives the per-subnet neuron/validator count
                     # TotalStake gives total TAO staked in the subnet
-                    validators = await self._query(sub, "SubnetLimit", [netuid])
+                    validators = await self._query(sub, "SubnetworkN", [netuid])
                     # Try to get total stake from root network
                     total_stake = await self._query(sub, "TotalStake", [])
             except Exception as e:

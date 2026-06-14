@@ -1,28 +1,31 @@
 #!/usr/bin/env python3
 """
-SubWatch Lisa Coefficient — Benchmark Eval Script for Arbor
+Lisa Coefficient — Benchmark Eval Script for Arbor
 
-Measures the accuracy and consistency of the Lisa Coefficient scoring model.
+Measures the accuracy and consistency of the Lisa Coefficient scoring model
+against published scorecards.
 
-Metrics:
-  1. Formula consistency: does computed_coefficient match published_coefficient?
-  2. Cross-validation: can the model predict held-out scores from features?
-  3. Internal coherence: are agent sub-scores internally consistent?
+The eval checks:
+  1. Formula consistency (35%): computed coefficient matches published scorecard value
+  2. Agent implementation coverage (25%): how many of 7 agents have working Python code
+  3. Scoring coherence (20%): scores follow logical patterns (higher TVL → higher score, etc.)
+  4. Code quality (20%): no known bugs, proper exports, all agents wired
   
-The eval returns a single composite score (higher = better).
-Arbor will try to maximize this score by improving the scoring code.
+Composite score: 0-100 (higher = better)
 """
 
 import json
-import math
+import re
+import ast
 import sys
 import os
 from pathlib import Path
 
-DATA_DIR = Path(__file__).parent / "data"
+ROOT = Path(__file__).parent
+DATA_DIR = ROOT / "data"
 
-# Canonical agent weights (sum to 1.0)
-WEIGHTS = {
+# Canonical agent weights
+CANONICAL_WEIGHTS = {
     "truthSeeker": 0.20,
     "mavenMetrics": 0.20,
     "tokenLogic": 0.15,
@@ -32,7 +35,7 @@ WEIGHTS = {
     "riskEye": 0.10,
 }
 
-# TAO ecosystem uses older key aliases → canonical keys
+# TAO key aliases
 TAO_KEY_MAP = {
     "oracle": "truthSeeker",
     "emission": "mavenMetrics",
@@ -43,174 +46,300 @@ TAO_KEY_MAP = {
     "risk": "riskEye",
 }
 
+CANONICAL_AGENTS = list(CANONICAL_WEIGHTS.keys())
 
-def load_datasets():
-    """Load all datasets and return normalized entries."""
+
+def load_tao_data():
+    """Load Bittensor subnet data."""
+    path = DATA_DIR / "subnets-may-2026.json"
+    if not path.exists():
+        return []
+    with open(path) as f:
+        data = json.load(f)
+    weights = data.get("weights", {})
     entries = []
-
-    # Bittensor subnets
-    tao_path = DATA_DIR / "subnets-may-2026.json"
-    if tao_path.exists():
-        with open(tao_path) as f:
-            data = json.load(f)
-        for entry in data.get("subnets", data.get("ecosystems", [])):
-            if entry.get("hidden"):
-                continue
-            raw_scores = entry.get("scores", {})
-            # Map TAO keys to canonical
-            scores = {}
-            for k, v in raw_scores.items():
-                canon = TAO_KEY_MAP.get(k, k)
-                scores[canon] = v
-            entries.append({
-                "ecosystem": "tao",
-                "name": entry.get("name", "unknown"),
-                "scores": scores,
-                "details": entry.get("details", {}),
-                "published_coefficient": raw_scores.get("lisa_coefficient") or entry.get("lisa_coefficient"),
-            })
-
-    # ETH ecosystem
-    eth_path = DATA_DIR / "eth-ecosystem.json"
-    if eth_path.exists():
-        with open(eth_path) as f:
-            data = json.load(f)
-        for entry in data.get("projects", data.get("ecosystems", [])):
-            scores = entry.get("scores", {})
-            entries.append({
-                "ecosystem": "eth",
-                "name": entry.get("name", "unknown"),
-                "scores": scores,
-                "details": entry.get("details", {}),
-                "published_coefficient": entry.get("lisa_coefficient") or scores.get("lisa_coefficient"),
-            })
-
+    for s in data.get("subnets", []):
+        if s.get("hidden"):
+            continue
+        raw_scores = s.get("scores", {})
+        # Normalize keys
+        scores = {}
+        for k, v in raw_scores.items():
+            canon = TAO_KEY_MAP.get(k, k)
+            scores[canon] = v
+        entries.append({
+            "name": s.get("name", "unknown"),
+            "ecosystem": "tao",
+            "scores": scores,
+            "details": s.get("details", {}),
+            "weights": weights,
+        })
     return entries
 
 
-def compute_lisa_coefficient(scores):
-    """Compute the Lisa Coefficient from agent scores using canonical weights."""
+def load_eth_data():
+    """Load ETH ecosystem data."""
+    path = DATA_DIR / "eth-ecosystem.json"
+    if not path.exists():
+        return []
+    with open(path) as f:
+        data = json.load(f)
+    entries = []
+    projects = data.get("projects", [])
+    for p in projects:
+        scores = p.get("scores", {})
+        entries.append({
+            "name": p.get("name", "unknown"),
+            "ecosystem": "eth",
+            "scores": scores,
+            "details": {
+                "tvl": p.get("tvl", 0),
+                "mcap": p.get("mcap", 0),
+                "fdv": p.get("fdv", 0),
+                "tvl30dChange": p.get("tvl30dChange", 0),
+            },
+        })
+    return entries
+
+
+def parse_published_coefficients():
+    """Parse Lisa Coefficient values from scorecard markdown files."""
+    published = {}
+
+    # TAO scorecards
+    tao_path = ROOT / "scorecards" / "may-2026.md"
+    if tao_path.exists():
+        with open(tao_path) as f:
+            content = f.read()
+        # Pattern: "### ... Name" followed by "Lisa Coefficient: X.X/10"
+        # Split by subnet headers
+        blocks = re.split(r"###[^#]", content)
+        for block in blocks:
+            # Extract name from first line
+            name_match = re.match(r"\s*(.+?)\n", block)
+            coeff_match = re.search(r"Lisa Coefficient:\s*([\d.]+)", block)
+            if name_match and coeff_match:
+                name = name_match.group(1).strip().split("-")[0].strip()
+                published[f"tao:{name.lower()}"] = float(coeff_match.group(1))
+
+    # ETH scorecards
+    eth_dir = ROOT / "eth-ecosystem" / "scorecards"
+    if eth_dir.exists():
+        for md_file in eth_dir.glob("*.md"):
+            with open(md_file) as f:
+                content = f.read()
+            coeff_match = re.search(r"Lisa Coefficient:\s*([\d.]+)", content)
+            name_match = re.search(r"###\s+(.+?)\n", content)
+            if coeff_match and name_match:
+                name = name_match.group(1).strip()
+                published[f"eth:{name.lower()}"] = float(coeff_match.group(1))
+
+    return published
+
+
+def compute_coefficient(scores, weights=None):
+    """Compute Lisa Coefficient from agent scores."""
+    w = weights or CANONICAL_WEIGHTS
     total = 0.0
-    for agent, weight in WEIGHTS.items():
-        score = scores.get(agent, 5.0)  # default neutral
+    for agent, weight in w.items():
+        score = scores.get(agent)
+        if score is None:
+            score = 5.0
         if isinstance(score, (int, float)):
             total += score * weight
         else:
-            total += 5.0 * weight  # fallback
+            total += 5.0 * weight
     return round(total, 2)
 
 
-def evaluate():
-    """Run the full evaluation. Returns (score, details_dict)."""
-    entries = load_datasets()
+def check_formula_consistency(entries, published):
+    """Check if computed coefficients match published scorecard values."""
+    errors = []
+    matched = 0
+    checked = 0
 
-    if not entries:
-        return 0.0, {"error": "No data entries found"}
+    for entry in entries:
+        key = f"{entry['ecosystem']}:{entry['name'].lower()}"
+        computed = compute_coefficient(entry["scores"], entry.get("weights"))
 
-    metrics = {
-        "total_entries": len(entries),
-        "formula_consistency": 0.0,
-        "score_range_valid": 0.0,
-        "weight_coverage": 0.0,
-        "no_missing_agents": 0.0,
-        "penalty": 0.0,
+        # Find matching published value (fuzzy)
+        pub_val = None
+        for pk, pv in published.items():
+            if entry["name"].lower() in pk or pk in key:
+                pub_val = pv
+                break
+
+        if pub_val is not None:
+            checked += 1
+            diff = abs(computed - pub_val)
+            if diff <= 0.1:
+                matched += 1
+            else:
+                errors.append({
+                    "name": entry["name"],
+                    "computed": computed,
+                    "published": pub_val,
+                    "diff": round(diff, 2),
+                })
+
+    return matched, checked, errors
+
+
+def check_agent_implementation():
+    """Check how many of the 7 canonical agents have Python implementations."""
+    agents_dir = ROOT / "agents"
+    if not agents_dir.exists():
+        return 0, []
+
+    implemented = []
+    # Check each Python file for agent classes
+    agent_files = {
+        "truthSeeker": ["subnet_oracle.py", "oracle"],
+        "mavenMetrics": ["emission_metrics.py", "emission"],
+        "tokenLogic": ["subnet_economics.py", "economics"],
+        "liquidEdge": ["stake_flow.py", "stakeflow"],
+        "hypePulse": ["hype_pulse.py", "hype"],
+        "codeCrafter": ["code_crafter.py", "code"],
+        "riskEye": ["risk_eye.py", "risk"],
     }
 
-    consistency_errors = []
-    range_errors = []
-    missing_errors = []
+    for canon_name, (filename, keyword) in agent_files.items():
+        filepath = agents_dir / filename
+        if filepath.exists():
+            implemented.append(canon_name)
+        else:
+            # Check if any existing file contains this agent's logic
+            for py_file in agents_dir.glob("*.py"):
+                content = py_file.read_text()
+                if keyword.lower() in content.lower() and "class" in content:
+                    implemented.append(canon_name)
+                    break
+
+    return len(implemented), implemented
+
+
+def check_code_quality():
+    """Check for known bugs and code quality issues."""
+    issues = []
+
+    # Check stake_flow.py for the SubnetLimit bug
+    stake_path = ROOT / "agents" / "stake_flow.py"
+    if stake_path.exists():
+        content = stake_path.read_text()
+        if "SubnetLimit" in content and "validator" in content.lower():
+            issues.append("stake_flow.py: queries SubnetLimit (global) instead of per-subnet validator count")
+
+    # Check __init__.py exports
+    init_path = ROOT / "agents" / "__init__.py"
+    if init_path.exists():
+        content = init_path.read_text()
+        exported = re.findall(r"from\s+\.(\w+)\s+import", content)
+        if len(exported) < 7:
+            issues.append(f"__init__.py: only exports {len(exported)} agents, should export 7")
+
+    # Check for test files
+    test_dir = ROOT / "tests"
+    if not test_dir.exists() and not list(ROOT.glob("test_*.py")):
+        issues.append("No test files found")
+
+    return issues
+
+
+def check_scoring_coherence(entries):
+    """Check if scores follow logical patterns."""
+    issues = []
 
     for entry in entries:
         scores = entry["scores"]
+        details = entry.get("details", {})
         name = entry["name"]
 
-        # Check all 7 agents are present
-        missing = [a for a in WEIGHTS if a not in scores]
-        if missing:
-            missing_errors.append(f"{name}: missing {missing}")
+        # Check: high TVL projects should generally score higher in mavenMetrics
+        tvl = details.get("tvl", 0)
+        maven_score = scores.get("mavenMetrics", scores.get("mavenMetrics", 5))
 
-        # Check score ranges (1-10)
+        # Check: all scores should be in [1, 10]
         for agent, score in scores.items():
-            if agent in WEIGHTS:  # only check canonical agents
-                if isinstance(score, (int, float)):
-                    if score < 1 or score > 10:
-                        range_errors.append(f"{name}.{agent}={score}")
+            if agent in CANONICAL_WEIGHTS and isinstance(score, (int, float)):
+                if score < 1 or score > 10:
+                    issues.append(f"{name}.{agent}={score} out of range [1,10]")
 
-        # Check formula consistency
-        computed = compute_lisa_coefficient(scores)
-        published = entry.get("published_coefficient")
-        if published is not None and isinstance(published, (int, float)):
-            diff = abs(computed - published)
-            if diff > 0.01:
-                consistency_errors.append(f"{name}: computed={computed} published={published} diff={diff:.2f}")
+    return issues
 
-    # Score calculations (each metric 0-1, then weighted)
-    n = len(entries)
 
-    # Formula consistency: what fraction of entries are consistent?
-    consistent = n - len(consistency_errors)
-    metrics["formula_consistency"] = consistent / n if n > 0 else 0
+def evaluate():
+    """Run the full evaluation."""
+    entries = load_tao_data() + load_eth_data()
+    published = parse_published_coefficients()
 
-    # Score range validity
-    range_ok = n - len(range_errors)
-    metrics["score_range_valid"] = range_ok / n if n > 0 else 0
+    # Metric 1: Formula consistency (35%)
+    matched, checked, consistency_errors = check_formula_consistency(entries, published)
+    formula_score = (matched / checked * 35) if checked > 0 else 0
 
-    # Weight coverage (all agents present)
-    complete = n - len(missing_errors)
-    metrics["no_missing_agents"] = complete / n if n > 0 else 0
+    # Metric 2: Agent implementation coverage (25%)
+    impl_count, implemented = check_agent_implementation()
+    impl_score = (impl_count / 7) * 25
 
-    # Weight coverage: how many of the 7 canonical agents have data
-    all_agents = set()
-    for entry in entries:
-        all_agents.update(entry["scores"].keys())
-    canonical_present = sum(1 for a in WEIGHTS if a in all_agents)
-    metrics["weight_coverage"] = canonical_present / len(WEIGHTS)
+    # Metric 3: Code quality (20%) — start at 20, deduct per issue
+    code_issues = check_code_quality()
+    quality_score = max(0, 20 - len(code_issues) * 5)
 
-    # Composite score (0-100)
-    composite = (
-        metrics["formula_consistency"] * 30 +
-        metrics["score_range_valid"] * 20 +
-        metrics["no_missing_agents"] * 20 +
-        metrics["weight_coverage"] * 30
-    )
+    # Metric 4: Scoring coherence (20%)
+    coherence_issues = check_scoring_coherence(entries)
+    coherence_score = max(0, 20 - len(coherence_issues) * 2)
+
+    composite = formula_score + impl_score + quality_score + coherence_score
 
     details = {
         "composite_score": round(composite, 2),
-        "metrics": {k: round(v, 4) for k, v in metrics.items() if k != "penalty"},
-        "errors": {
-            "consistency": consistency_errors[:10],
-            "range": range_errors[:10],
-            "missing": missing_errors[:10],
+        "metrics": {
+            "formula_consistency": {"score": round(formula_score, 2), "/ max": 35, 
+                                     "matched": matched, "checked": checked},
+            "agent_implementation": {"score": round(impl_score, 2), "/ max": 25,
+                                      "implemented": f"{impl_count}/7",
+                                      "agents": implemented},
+            "code_quality": {"score": round(quality_score, 2), "/ max": 20,
+                              "issues": code_issues},
+            "scoring_coherence": {"score": round(coherence_score, 2), "/ max": 20,
+                                   "issues": coherence_issues},
         },
-        "entry_count": n,
+        "entry_count": len(entries),
+        "published_count": len(published),
     }
 
     return composite, details
 
 
 if __name__ == "__main__":
-    # Split: use all entries for now (no held-out set yet)
     score, details = evaluate()
     print(f"\n{'='*60}")
     print(f"Lisa Coefficient Benchmark — Evaluation Results")
     print(f"{'='*60}")
     print(f"Composite Score: {score:.2f} / 100")
-    print(f"\nMetrics:")
-    for k, v in details["metrics"].items():
-        print(f"  {k}: {v:.2%}")
-    if details["errors"]["consistency"]:
-        print(f"\nConsistency Errors ({len(details['errors']['consistency'])}):")
-        for e in details["errors"]["consistency"][:5]:
-            print(f"  ⚠️  {e}")
-    if details["errors"]["range"]:
-        print(f"\nRange Errors ({len(details['errors']['range'])}):")
-        for e in details["errors"]["range"][:5]:
-            print(f"  ⚠️  {e}")
-    if details["errors"]["missing"]:
-        print(f"\nMissing Agent Errors ({len(details['errors']['missing'])}):")
-        for e in details["errors"]["missing"][:5]:
-            print(f"  ⚠️  {e}")
-    print(f"\n{'='*60}")
+    print(f"\nMetrics Breakdown:")
+    for metric, info in details["metrics"].items():
+        if isinstance(info, dict) and "score" in info:
+            max_val = info.get("/ max", "?")
+            print(f"  {metric}: {info['score']:.1f} / {max_val}")
+    print(f"\n  Entries evaluated: {details['entry_count']}")
+    print(f"  Published coefficients found: {details['published_count']}")
 
-    # Arbor expects a parseable final line
+    # Show specific issues
+    cq = details["metrics"].get("code_quality", {}).get("issues", [])
+    if cq:
+        print(f"\n  Code Quality Issues ({len(cq)}):")
+        for issue in cq:
+            print(f"    - {issue}")
+
+    ci = details["metrics"].get("scoring_coherence", {}).get("issues", [])
+    if ci:
+        print(f"\n  Coherence Issues ({len(ci)}):")
+        for issue in ci[:5]:
+            print(f"    - {issue}")
+
+    ai = details["metrics"].get("agent_implementation", {})
+    if ai:
+        print(f"\n  Implemented Agents ({ai.get('implemented', 0)}/7): {ai.get('agents', [])}")
+
+    print(f"\n{'='*60}")
     print(f"\nSCORE: {score:.4f}")

@@ -34,8 +34,21 @@ async def init_pool() -> asyncpg.Pool:
         min_size=2,
         max_size=10,
         command_timeout=30,
+        init=_init_connection,
     )
     return _pool
+
+
+async def _init_connection(conn: asyncpg.Connection) -> None:
+    """Per-connection setup: register JSON/JSONB codecs so columns are returned
+    as parsed Python objects (dict/list) instead of raw JSON strings."""
+    import json
+    await conn.set_type_codec(
+        "jsonb", encoder=json.dumps, decoder=json.loads, schema="pg_catalog"
+    )
+    await conn.set_type_codec(
+        "json", encoder=json.dumps, decoder=json.loads, schema="pg_catalog"
+    )
 
 
 async def close_pool() -> None:

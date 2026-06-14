@@ -7,3 +7,5 @@ cache_old_*/
 backend/.venv/
 __pycache__/
 backend/__pycache__/
+backend/.env
+backend/.last_newsletter_sent

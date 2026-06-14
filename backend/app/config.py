@@ -41,6 +41,20 @@ class Settings:
     CACHE_TTL_SECONDS: int = int(os.getenv("CACHE_TTL_SECONDS", "3600"))
     REQUEST_TIMEOUT_SECONDS: float = float(os.getenv("REQUEST_TIMEOUT_SECONDS", "15"))
 
+    # Payments (Base / USDC)
+    BASE_RPC_URL: str = os.getenv("BASE_RPC_URL", "https://mainnet.base.org")
+    USDC_CONTRACT_BASE: str = os.getenv(
+        "USDC_CONTRACT_BASE", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    )
+    # Wallet that report payments should be sent to. Leave as the placeholder
+    # default until a production receive address is provisioned.
+    PAYMENT_RECEIVE_ADDRESS: str = os.getenv(
+        "PAYMENT_RECEIVE_ADDRESS", "0xLISA_RECEIVE_ADDRESS_TBD"
+    )
+    # When False, report generation works without a verified payment (MVP / demo
+    # mode). Flip to True once paid access goes live.
+    PAYMENT_REQUIRED: bool = os.getenv("PAYMENT_REQUIRED", "false").lower() == "true"
+
     @property
     def async_database_url(self) -> str:
         """Return the DATABASE_URL in asyncpg-compatible form."""

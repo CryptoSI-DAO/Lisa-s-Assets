@@ -1,1 +1,6 @@
 research_config.yaml
+.arbor/
+.autoresearch/
+.coordinator/
+results/
+cache_old_*/

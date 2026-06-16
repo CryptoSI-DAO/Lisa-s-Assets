@@ -1,0 +1,120 @@
+# Sonic — Multi-Chain AMM & DeFi Hub
+## Lisa Coefficient Scorecard
+
+> **Date:** June 16, 2026
+> **Protocol:** Sonic — AMM & DeFi Hub (Multi-Chain)
+> **Chain:** ICP, Solana, Bitfinity EVM
+> **Scored by:** Lisa's Assets AI Agent Framework
+> **Token:** SONIC — $0.0001 | MCap: $5M | FDV: $100M
+
+---
+
+## 🎯 Lisa Coefficient: 4.8/10 — 🟡 Watch
+
+| Agent | Score | Weight | Weighted | Key Finding |
+|-------|-------|--------|----------|-------------|
+| 🧮 MavenMetrics | 5/10 | 20% | 1.00 | $8M TVL, -15% 30d decline, multi-chain |
+| 📊 TokenLogic | 4/10 | 15% | 0.60 | SONIC token near zero, high FDV/TVL |
+| 👨‍💻 CodeCrafter | 6/10 | 10% | 0.60 | V3 concentrated liquidity, recurring swaps, LBP |
+| 🔥 HypePulse | 5/10 | 10% | 0.50 | Multi-chain presence but ICP is not primary |
+| 🔍 TruthSeeker | 5/10 | 20% | 1.00 | Real product but ICP is secondary chain |
+| 💧 LiquidEdge | 4/10 | 15% | 0.60 | Limited liquidity on ICP specifically |
+| ⚠️ RiskEye | 4/10 | 10% | 0.40 | Multi-chain dilution, TVL decline, low hype |
+| **TOTAL** | | **100%** | **4.8/10** | |
+
+---
+
+## 🔍 TruthSeeker — 5/10
+
+**What It Does:** Sonic is a multi-chain AMM and DeFi Hub operating across ICP, Solana, and Bitfinity EVM (Bitcoin L2). It offers V3 concentrated liquidity swaps, recurring swaps (DCA), token launchpad (Hyper Launch), and Liquidity Bootstrapping Pools (LBP). Transactions cost ~$0.02 with ~2s finality. The SONIC token captures value via governance and fee sharing. ICP is one of three supported chains — but not the primary one.
+
+**Comparable to:** Uniswap V3 + dApp ecosystem — but multi-chain from day one. The V3 concentrated liquidity model is proven, but Sonic is a fork, not an innovator.
+
+**Fundamental Analyst Notes:**
+- Sonic is a competent AMM but not a differentiated one — it's a Uniswap V3 fork
+- The multi-chain strategy (ICP, Solana, Bitfinity) is ambitious but dilutes focus
+- ICP is the smallest of the three chains — most activity is on Solana and Bitfinity
+- The -15% 30d TVL decline is concerning — capital is leaving across all chains
+
+---
+
+## 🧮 MavenMetrics — 5/10
+
+| Metric | Value | Assessment |
+|--------|-------|------------|
+| TVL | $8M | Small — and declining |
+| 30d TVL Growth | -15% | Negative — significant outflows |
+| Chains | ICP, Solana, Bitfinity | Multi-chain but diluted |
+| TX Cost | $0.02 | Competitive |
+| Finality | ~2s | Fast |
+
+**Analyst Notes:**
+- $8M TVL across three chains means ~$2-3M per chain — very thin
+- -15% 30d decline is the worst among all ICP ecosystem projects
+- The multi-chain approach means no single chain gets deep liquidity
+- $0.02 tx cost is competitive but not unique (Solana is cheaper)
+
+---
+
+## 📊 TokenLogic — 4/10
+
+| Metric | Value | Assessment |
+|--------|-------|------------|
+| SONIC MCap | $5M | Very low |
+| SONIC FDV | $100M | Extremely high relative to TVL |
+| SONIC Price | $0.0001 | Near zero |
+| FDV/TVL | 12.5 | Very rich |
+| Token Utility | Governance + fee sharing | Standard |
+
+**Analyst Notes:**
+- FDV/TVL of 12.5 is very rich — the token is pricing in massive future growth
+- SONIC at $0.0001 means the market is highly skeptical
+- The token utility is standard (governance + fee sharing) — nothing unique
+- If TVL doesn't grow, the token has significant downside risk
+
+---
+
+## ⚠️ RiskEye — 4/10
+
+### Bull Case
+- Multi-chain presence diversifies user base
+- V3 concentrated liquidity is proven model
+- Token launchpad (Hyper Launch) attracts new projects
+- Low transaction costs ($0.02) are competitive
+- Recurring swaps (DCA) is a unique product feature
+
+### Bear Case
+- ICP is not the primary chain — Solana and Bitfinity dominate
+- $8M TVL is small and declining (-15% 30d)
+- SONIC token is near zero with high FDV/TVL
+- Multi-chain focus dilutes development resources
+- Competition from native DEXs on each chain (Orca on Solana, Uniswap on Bitfinity)
+
+### Key Risks
+| Risk | Severity | Likelihood |
+|------|----------|------------|
+| TVL further decline | High | High |
+| ICP chain becomes irrelevant | Medium | Medium |
+| SONIC token goes to zero | High | Medium |
+| Multi-chain dilution | Medium | High |
+| Competition from native DEXs | High | High |
+
+### Catalysts
+| Catalyst | Timeline | Impact |
+|----------|----------|--------|
+| TVL recovery | Q3 2026 | High |
+| New chain integration | Q3 2026 | Medium |
+| Hyper Launch success | Q3 2026 | Medium |
+| SONIC token burn mechanism | Q3-Q4 2026 | Medium |
+
+---
+
+## 📋 Verdict
+
+**🟡 Watch** — Sonic is a competent multi-chain AMM but ICP is its least important chain. The $8M TVL is declining (-15% 30d), the SONIC token is near zero, and the multi-chain focus means ICP doesn't get the attention it needs. The V3 concentrated liquidity model is proven but not differentiated. This is a wait-and-see — if Sonic's ICP TVL grows above $10M, it becomes interesting.
+
+**Suggested Action:** Monitor ICP-specific TVL growth. Don't invest in SONIC token until TVL reverses its decline. Watch for Hyper Launch success on ICP.
+
+---
+
+*Scorecard generated by Lisa's Assets — the ultimate assets for alpha seekers 🎯*

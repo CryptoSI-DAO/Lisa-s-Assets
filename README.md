@@ -7,9 +7,10 @@
 
 | Ecosystem | Status | Scorecards | Deep Dives |
 |-----------|--------|------------|------------|
-|| **Bittensor (TAO)** | ✅ Live | [scorecards/](scorecards/) | 10 subnets scored |
-|| **Ethereum (ETH)** | ✅ Live | [eth-ecosystem/scorecards/](eth-ecosystem/scorecards/) | 7 projects scored |
-|| **Hyperliquid (HYPE)** | ✅ Live | [hype-ecosystem/scorecards/](hype-ecosystem/scorecards/) | 5 projects scored |
+| **Bittensor (TAO)** | ✅ Live | [scorecards/](scorecards/) | 10 subnets scored |
+| **Ethereum (ETH)** | ✅ Live | [eth-ecosystem/scorecards/](eth-ecosystem/scorecards/) | 7 projects scored |
+| **Hyperliquid (HYPE)** | ✅ Live | [hype-ecosystem/scorecards/](hype-ecosystem/scorecards/) | 5 projects scored |
+| **Internet Computer (ICP)** | ✅ Live | [icp-ecosystem/scorecards/](icp-ecosystem/scorecards/) | 7 projects scored |
 
 ---
 
@@ -49,6 +50,46 @@
 - HyperEVM DeFi TVL: $1.6B (24 protocols, 113 pools)
 - Liquid Staking TVL: $1.44B (Kinetiq 83% share)
 - Builder Revenue: $80.8M all-time
+
+---
+
+## Ethereum Ecosystem — June 2026
+
+**Overview:** [eth-ecosystem/README.md](eth-ecosystem/README.md)
+
+| Project | Category | Lisa Coefficient | Verdict |
+|---------|----------|-----------------|---------|
+| **Lido** | Liquid Staking | 8.3 | 🟢 Strong Hold |
+| **Aave** | Lending | 7.9 | 🟢 Strong Hold |
+| **Sky (Maker)** | Stablecoin/Lending | 7.2 | 🔷 Research Further |
+| **Pendle** | Yield Tokenization | 6.8 | 🔷 Research Further |
+| **Ethena** | Synthetic Dollar | 5.9 | 🔷 Research Further |
+| **Rocket Pool** | Liquid Staking | 5.5 | 🟡 Watch |
+| **EigenLayer** | Restaking | 5.1 | 🟡 Watch |
+
+**Key Stats:**
+- ETH: $1,665 | MCap: $201B | DeFi TVL: $50B
+- Staked: 28% | Burn: 500-1500 ETH/day
+
+---
+
+## Internet Computer Ecosystem — June 2026
+
+**Overview:** [icp-ecosystem/README.md](icp-ecosystem/README.md)
+
+| Project | Category | Lisa Coefficient | Verdict |
+|---------|----------|-----------------|---------|
+| **ICPSwap** | DEX/AMM | 7.4 | 🔷 Research Further |
+| **OISY Wallet** | Wallet | 7.1 | 🔷 Research Further |
+| **OpenChat** | Social/Messaging | 6.8 | 🔷 Research Further |
+| **Caffeine** | AI App Builder | 6.5 | 🔷 Research Further |
+| **ckBTC** | Chain Fusion Asset | 6.2 | 🔷 Research Further |
+| **ICDex** | Orderbook DEX | 5.4 | 🟡 Watch |
+| **Sonic** | AMM Hub | 4.8 | 🟡 Watch |
+
+**Key Stats:**
+- ICP: $2.44 | MCap: $1.35B | Canisters: 1.15M+
+- Nodes: 724 | TX/s: ~6,878 | Internet Identities: 3.18M+
 
 ---
 

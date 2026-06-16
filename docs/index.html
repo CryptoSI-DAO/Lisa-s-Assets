@@ -18,6 +18,7 @@
         <a class="nav-link" data-route="tao" href="#tao">TAO Bittensor</a>
         <a class="nav-link" data-route="eth" href="#eth">ETH</a>
         <a class="nav-link" data-route="hype" href="#hype">HYPE</a>
+        <a class="nav-link" data-route="icp" href="#icp">ICP</a>
       </div>
       <button class="theme-toggle" onclick="Theme.toggle()" title="Toggle theme">🌙</button>
       <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
@@ -30,6 +31,7 @@
     <a class="nav-link" data-route="tao" href="#tao">TAO Bittensor</a>
     <a class="nav-link" data-route="eth" href="#eth">ETH</a>
     <a class="nav-link" data-route="hype" href="#hype">HYPE</a>
+    <a class="nav-link" data-route="icp" href="#icp">ICP</a>
     <a class="nav-link" onclick="Theme.toggle()">🌙 Toggle Theme</a>
   </div>
 </nav>
@@ -92,6 +94,21 @@
   </div>
 </section>
 
+<!-- INTERNET COMPUTER -->
+<section id="page-icp" class="page" aria-hidden="true">
+  <div class="hero" style="padding:2.5rem 1.5rem 2rem;">
+    <div class="breadcrumb"><a href="#home">Lisa's Assets</a> / Internet Computer</div>
+    <h1 style="font-size:2.2rem;">🌐 Internet Computer</h1>
+    <p class="tagline">Blockchainless Cloud, Chain Fusion, and Self-Writing Apps</p>
+  </div>
+  <div class="container">
+    <div id="icp-market-bar" class="market-bar"></div>
+    <h2 class="section-title">📊 Score Summary</h2>
+    <div id="icp-score-table"></div>
+    <div id="icp-project-cards"></div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <p>🎯 Lisa's Assets — The Ultimate Assets for Alpha Seekers</p>
@@ -126,6 +143,7 @@
   // ═══ LOAD DATA & RENDER ═══
   var TAO_DATA = 'data/subnets-may-2026.json';
   var ETH_DATA = 'data/eth-ecosystem.json';
+  var ICP_DATA = 'data/icp-ecosystem.json';
 
   // Load TAO data
   fetch(TAO_DATA).then(function(r) { return r.json(); }).then(function(data) {
@@ -141,6 +159,13 @@
     renderEthEcosystem(data);
   }).catch(function(e) {
     document.getElementById('eth-score-table').innerHTML = '<p style="color:var(--red)">Data load failed: ' + e.message + '</p>';
+  });
+
+  // Load ICP data
+  fetch(ICP_DATA).then(function(r) { return r.json(); }).then(function(data) {
+    renderIcpEcosystem(data);
+  }).catch(function(e) {
+    document.getElementById('icp-score-table').innerHTML = '<p style="color:var(--red)">Data load failed: ' + e.message + '</p>';
   });
 
   function renderTaoEcosystem(data) {
@@ -183,8 +208,28 @@
     document.getElementById('eth-project-cards').innerHTML = Renderer.renderProjectCards(data.projects, data.weights, data.verdicts);
   }
 
+  function renderIcpEcosystem(data) {
+    // Market bar
+    var stats = [
+      { label: 'ICP', value: '$' + data.meta.icp_price },
+      { label: 'MCap', value: '$' + data.meta.icp_market_cap + 'B' },
+      { label: 'Canisters', value: (data.meta.total_canisters / 1000000).toFixed(1) + 'M' },
+      { label: 'Nodes', value: data.meta.node_machines },
+      { label: 'TX/s', value: data.meta.tx_per_second.toLocaleString() }
+    ];
+    var html = '';
+    for (var i = 0; i < stats.length; i++) {
+      html += '<div class="market-stat"><div class="label">' + stats[i].label + '</div><div class="value">' + stats[i].value + '</div></div>';
+    }
+    document.getElementById('icp-market-bar').innerHTML = html;
+
+    // Score table and cards
+    document.getElementById('icp-score-table').innerHTML = Renderer.renderProjectTable(data.projects, data.weights, data.verdicts);
+    document.getElementById('icp-project-cards').innerHTML = Renderer.renderProjectCards(data.projects, data.weights, data.verdicts);
+  }
+
   function renderEcosystemGrid(data) {
-    var ids = ['tao', 'eth', 'hype'], html = '';
+    var ids = ['tao', 'eth', 'hype', 'icp'], html = '';
     for (var i = 0; i < ids.length; i++) {
       var eco = data.ecosystems[ids[i]];
       if (!eco) continue;

@@ -1,0 +1,288 @@
+{
+  "meta": {
+    "date": "2026-06-16",
+    "icp_price": 2.44,
+    "icp_market_cap": 1.35,
+    "icp_circulating": 554,
+    "total_canisters": 1152896,
+    "node_machines": 724,
+    "data_centers": 143,
+    "countries": 36,
+    "compute_mieps": 8856,
+    "tx_per_second": 6878,
+    "internet_identities": 3180674,
+    "cycle_burn_rate": "48T cycles/s"
+  },
+  "ecosystems": {
+    "tao": {
+      "name": "TAO Bittensor",
+      "icon": "🌐",
+      "path": "tao",
+      "status": "active",
+      "stats": { "subnets": 128, "scored": 10 }
+    },
+    "eth": {
+      "name": "Ethereum",
+      "icon": "⟠",
+      "path": "eth",
+      "status": "active",
+      "stats": [
+        { "label": "ETH", "value": "$1,665" },
+        { "label": "MCap", "value": "$201B" },
+        { "label": "DeFi TVL", "value": "$50B" },
+        { "label": "Staked", "value": "28%" }
+      ]
+    },
+    "hype": {
+      "name": "HYPE",
+      "icon": "⚡",
+      "path": "hype",
+      "status": "active",
+      "stats": [
+        { "label": "HYPE", "value": "$72.24" },
+        { "label": "MCap", "value": "$16B" },
+        { "label": "DeFi TVL", "value": "$1.6B" },
+        { "label": "Validators", "value": "27" }
+      ]
+    },
+    "icp": {
+      "name": "Internet Computer",
+      "icon": "🌐",
+      "path": "icp",
+      "status": "active",
+      "stats": [
+        { "label": "ICP", "value": "$2.44" },
+        { "label": "MCap", "value": "$1.35B" },
+        { "label": "Canisters", "value": "1.15M+" },
+        { "label": "Nodes", "value": "724" }
+      ]
+    }
+  },
+  "weights": {
+    "truthSeeker": 0.20,
+    "mavenMetrics": 0.20,
+    "liquidEdge": 0.15,
+    "tokenLogic": 0.15,
+    "hypePulse": 0.10,
+    "codeCrafter": 0.10,
+    "riskEye": 0.10
+  },
+  "verdicts": {
+    "strong_hold":  { "min": 8.0, "label": "Strong Hold",    "color": "green",  "icon": "🟢" },
+    "research":    { "min": 6.0, "label": "Research Further","color": "blue",   "icon": "🔷" },
+    "watch":       { "min": 4.0, "label": "Watch",          "color": "yellow", "icon": "🟡" },
+    "caution":     { "min": 2.0, "label": "Caution",        "color": "orange", "icon": "🟠" },
+    "avoid":       { "min": 1.0, "label": "Avoid",          "color": "red",    "icon": "🔴" }
+  },
+  "projects": [
+    {
+      "id": "icpswap",
+      "name": "ICPSwap",
+      "website": "https://icpswap.com",
+      "github": "https://github.com/ICPSwap",
+      "category": "DEX/AMM",
+      "token": "ICS",
+      "tokenPrice": 0.002,
+      "mcap": 20,
+      "fdv": 1000,
+      "tvl": 15000000,
+      "tvl30dChange": 12.0,
+      "description": "Full-stack financial hub on ICP. AMM DEX with SNS DAO governance, ck-Bridge for cross-chain assets, liquidity mining, and token launchpad. The most comprehensive DeFi protocol on ICP. ICS token (1B total supply) captures value via buyback-and-burn from protocol fees.",
+      "scores": { "truthSeeker": 8, "mavenMetrics": 7, "liquidEdge": 7, "tokenLogic": 7, "hypePulse": 7, "codeCrafter": 8, "riskEye": 6 },
+      "details": { "rank": 1, "featured": true },
+      "bull_case": [
+        "Most comprehensive DeFi protocol on ICP — full-stack financial hub",
+        "SNS DAO governance aligns with ICP's decentralized ethos",
+        "ck-Bridge enables native cross-chain asset swaps (no bridges)",
+        "ICS token has genuine buyback-and-burn mechanism from protocol fees",
+        "If ICP DeFi grows, ICPSwap is the 'Uniswap of ICP'"
+      ],
+      "bear_case": [
+        "TVL is tiny ($15M) — early stage with limited liquidity",
+        "ICS token price is near zero ($0.002) — massive FDV/TVL ratio",
+        "Limited on-chain activity compared to ETH DEXs",
+        "SNS DAO is new — governance participation unproven",
+        "Competition from ICDex (orderbook model) and multi-chain Sonic"
+      ]
+    },
+    {
+      "id": "oisy-wallet",
+      "name": "OISY Wallet",
+      "website": "https://oisy.com",
+      "github": "https://github.com/dfinity/oisy-wallet",
+      "category": "Wallet",
+      "token": "N/A",
+      "tokenPrice": null,
+      "mcap": null,
+      "fdv": null,
+      "tvl": null,
+      "tvl30dChange": 0,
+      "description": "Fully on-chain multi-chain wallet with network custody — no private keys. Uses ICP's Chain Fusion to manage BTC, ETH, SOL, and ICP natively. Accessible from any browser via Internet Identity (biometric auth). Incubated at DFINITY Foundation. The most architecturally innovative wallet in crypto.",
+      "scores": { "truthSeeker": 8, "mavenMetrics": 6, "liquidEdge": 7, "tokenLogic": 6, "hypePulse": 8, "codeCrafter": 8, "riskEye": 7 },
+      "details": { "rank": 2, "featured": true },
+      "bull_case": [
+        "Most innovative wallet architecture in crypto — network custody, no private keys",
+        "Chain Fusion enables native multi-chain (BTC, ETH, SOL) without bridges",
+        "Internet Identity integration — biometric auth, no passwords",
+        "Incubated at DFINITY — strong institutional backing",
+        "If ICP Chain Fusion thesis plays out, OISY becomes default cross-chain wallet"
+      ],
+      "bear_case": [
+        "No token — value capture for investors is unclear",
+        "Network custody is unproven at scale — trust assumption",
+        "Limited DeFi integration compared to MetaMask/Phantom",
+        "Dependent on ICP adoption — if ICP fails, OISY has no standalone value",
+        "User experience still maturing — browser-only, no mobile app"
+      ]
+    },
+    {
+      "id": "openchat",
+      "name": "OpenChat",
+      "website": "https://oc.app",
+      "github": "https://github.com/open-chat",
+      "category": "Social/Messaging",
+      "token": "OPENCHAT",
+      "tokenPrice": 0.0003,
+      "mcap": 3,
+      "fdv": 10,
+      "tvl": null,
+      "tvl30dChange": 0,
+      "description": "Fully on-chain messaging and social platform running on ICP. Controlled by an SNS DAO — community governs upgrades, features, and treasury. 100% uptime, tamperproof, with built-in crypto payments via Chain Fusion. The most successful SNS DAO on ICP.",
+      "scores": { "truthSeeker": 7, "mavenMetrics": 7, "liquidEdge": 6, "tokenLogic": 6, "hypePulse": 8, "codeCrafter": 7, "riskEye": 7 },
+      "details": { "rank": 3 },
+      "bull_case": [
+        "Most successful SNS DAO on ICP — proven governance model",
+        "Fully on-chain messaging — 100% uptime, tamperproof, censorship-resistant",
+        "Built-in crypto payments via Chain Fusion (send BTC, ETH in chat)",
+        "Internet Identity login — no passwords, biometric auth",
+        "If decentralized social media grows, OpenChat is the leader on ICP"
+      ],
+      "bear_case": [
+        "User base is small compared to centralized alternatives (Telegram, Discord)",
+        "Token value is near zero — limited fee capture mechanism",
+        "Messaging is a crowded market — competition from Lens, Farcaster, etc.",
+        "SNS DAO governance participation may decline over time",
+        "Revenue model is unclear — free service with no clear monetization path"
+      ]
+    },
+    {
+      "id": "caffeine",
+      "name": "Caffeine",
+      "website": "https://caffeine.ai",
+      "github": "https://github.com/caffeine-ai",
+      "category": "AI App Builder",
+      "token": "N/A",
+      "tokenPrice": null,
+      "mcap": null,
+      "fdv": null,
+      "tvl": null,
+      "tvl30dChange": 0,
+      "description": "AI-powered app builder on ICP. Chat with AI to create and deploy full-stack applications — Motoko backend, frontend, and database. Self-writing apps with safety guarantees: updates can't lose data, apps are tamperproof. The flagship product of the 'self-writing internet' thesis on ICP.",
+      "scores": { "truthSeeker": 7, "mavenMetrics": 5, "liquidEdge": 5, "tokenLogic": 5, "hypePulse": 9, "codeCrafter": 7, "riskEye": 6 },
+      "details": { "rank": 4 },
+      "bull_case": [
+        "Flagship 'self-writing internet' product — massive TAM if AI agents build apps",
+        "Motoko language designed for AI authorship — force-multiplier for AI coding",
+        "Safety rails: updates can't lose data, tamperproof, always available",
+        "Native ICP integration — canisters, Chain Fusion, Internet Identity",
+        "If AI agents become the primary software builders, Caffeine is the platform"
+      ],
+      "bear_case": [
+        "No token — value capture for investors is unclear",
+        "Product is early — limited users, unproven product-market fit",
+        "Competition from Lovable, Replit, Bolt — Web2 AI builders are ahead",
+        "Dependent on ICP adoption — if ICP fails, Caffeine has no standalone value",
+        "Revenue model is unclear — free tier with no clear monetization path"
+      ]
+    },
+    {
+      "id": "ckbtc",
+      "name": "ckBTC",
+      "website": "https://internetcomputer.org/ckbtc",
+      "github": "https://github.com/dfinity/ic",
+      "category": "Chain Fusion Asset",
+      "token": "ckBTC",
+      "tokenPrice": 107000,
+      "mcap": 500,
+      "fdv": 500,
+      "tvl": 500000000,
+      "tvl30dChange": 8.5,
+      "description": "Native Bitcoin on ICP via Chain Fusion technology. No bridge, no custodian — ckBTC is a 1:1 Bitcoin representation secured by ICP's threshold cryptography. Can be used in ICP DeFi protocols, sent to any Bitcoin address, and integrated into canister smart contracts. The most trustless way to use Bitcoin in DeFi.",
+      "scores": { "truthSeeker": 7, "mavenMetrics": 7, "liquidEdge": 7, "tokenLogic": 5, "hypePulse": 5, "codeCrafter": 7, "riskEye": 6 },
+      "details": { "rank": 5 },
+      "bull_case": [
+        "Most trustless Bitcoin representation in DeFi — no bridge, no custodian",
+        "Secured by ICP's threshold cryptography — mathematically guaranteed",
+        "Can be used in ICP DeFi protocols (ICPSwap, etc.) for yield",
+        "If ICP becomes a Bitcoin L2 (even informally), ckBTC is the primary asset",
+        "Chain Fusion is genuinely unique — no other chain offers this"
+      ],
+      "bear_case": [
+        "No token — ckBTC is a wrapped representation, not a tradable asset",
+        "Dependent on ICP's Chain Fusion — if ICP fails, ckBTC becomes worthless",
+        "Limited DeFi integration so far — mostly held, not used in protocols",
+        "Competition from WBTC, tBTC, and other Bitcoin representations",
+        "ICP's decentralization is lower than Bitcoin's — trust assumption"
+      ]
+    },
+    {
+      "id": "icdex",
+      "name": "ICDex",
+      "website": "https://icdex.io",
+      "github": "https://github.com/icdex-io",
+      "category": "Orderbook DEX",
+      "token": "N/A",
+      "tokenPrice": null,
+      "mcap": null,
+      "fdv": null,
+      "tvl": 2000000,
+      "tvl30dChange": -5.0,
+      "description": "Orderbook-based decentralized exchange on ICP. Traditional trading experience with limit orders, market orders, and order book depth. Targets professional traders who prefer AMMs. Built on ICP's canister architecture for on-chain order matching.",
+      "scores": { "truthSeeker": 6, "mavenMetrics": 4, "liquidEdge": 4, "tokenLogic": 5, "hypePulse": 5, "codeCrafter": 6, "riskEye": 5 },
+      "details": { "rank": 6 },
+      "bull_case": [
+        "Orderbook model appeals to professional traders — differentiator from AMMs",
+        "On-chain order matching via ICP canisters — transparent and tamperproof",
+        "If ICP DeFi grows, orderbook DEXs capture different user segment than AMMs",
+        "No token — fee-based revenue model is sustainable"
+      ],
+      "bear_case": [
+        "TVL is very low ($2M) — limited liquidity for trading",
+        "Orderbook DEXs on non-Ethereum chains have historically struggled",
+        "No token — limited incentive for liquidity provision",
+        "Competition from ICPSwap (AMM with higher TVL)",
+        "Professional traders prefer CEXs or established DEXs (dYdX, GMX)"
+      ]
+    },
+    {
+      "id": "sonic",
+      "name": "Sonic",
+      "website": "https://sonic.ooo",
+      "github": "https://github.com/sonic-ooo",
+      "category": "AMM Hub",
+      "token": "SONIC",
+      "tokenPrice": 0.0001,
+      "mcap": 5,
+      "fdv": 100,
+      "tvl": 8000000,
+      "tvl30dChange": -15.0,
+      "description": "Multi-chain AMM and DeFi Hub operating across ICP, Solana, and Bitfinity EVM. V3 concentrated liquidity AMM with $0.02 transaction costs and ~2s finality. Token launchpad (Hyper Launch), recurring swaps, and LBP (Liquidity Bootstrapping Pool) support. ICP is one of three supported chains.",
+      "scores": { "truthSeeker": 5, "mavenMetrics": 5, "liquidEdge": 4, "tokenLogic": 4, "hypePulse": 5, "codeCrafter": 6, "riskEye": 4 },
+      "details": { "rank": 7 },
+      "bull_case": [
+        "Multi-chain presence (ICP, Solana, Bitfinity) — diversified user base",
+        "V3 concentrated liquidity — competitive with Uniswap V3",
+        "Token launchpad (Hyper Launch) attracts new projects",
+        "Low transaction costs ($0.02) — accessible for small traders",
+        "Recurring swaps feature — unique product differentiator"
+      ],
+      "bear_case": [
+        "ICP is not the primary chain — Solana and Bitfinity are larger",
+        "TVL is modest ($8M) — limited liquidity depth",
+        "SONIC token is near zero — high FDV/TVL ratio",
+        "-15% 30d TVL decline — capital is leaving",
+        "Multi-chain focus dilutes development resources"
+      ]
+    }
+  ]
+}

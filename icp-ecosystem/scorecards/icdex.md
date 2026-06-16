@@ -1,0 +1,115 @@
+# ICDex — Orderbook DEX on ICP
+## Lisa Coefficient Scorecard
+
+> **Date:** June 16, 2026
+> **Protocol:** ICDex — Orderbook-Based Decentralized Exchange
+> **Chain:** Internet Computer Protocol (ICP)
+> **Scored by:** Lisa's Assets AI Agent Framework
+> **Token:** N/A — No token (fee-based revenue model)
+
+---
+
+## 🎯 Lisa Coefficient: 5.4/10 — 🟡 Watch
+
+| Agent | Score | Weight | Weighted | Key Finding |
+|-------|-------|--------|----------|-------------|
+| 🧮 MavenMetrics | 4/10 | 20% | 0.80 | $2M TVL, -5% 30d decline, limited volume |
+| 📊 TokenLogic | 5/10 | 15% | 0.75 | No token — fee-based model is sustainable but unproven |
+| 👨‍💻 CodeCrafter | 6/10 | 10% | 0.60 | On-chain order matching, canister architecture |
+| 🔥 HypePulse | 5/10 | 10% | 0.50 | Niche product — orderbook traders on ICP are rare |
+| 🔍 TruthSeeker | 6/10 | 20% | 1.20 | Real product with real orderbook — but tiny liquidity |
+| 💧 LiquidEdge | 4/10 | 15% | 0.60 | Very limited liquidity depth |
+| ⚠️ RiskEye | 5/10 | 10% | 0.50 | Orderbook DEXs on non-Ethereum chains struggle |
+| **TOTAL** | | **100%** | **5.0/10** | |
+
+---
+
+## 🔍 TruthSeeker — 6/10
+
+**What It Does:** ICDex is an orderbook-based decentralized exchange on ICP. Unlike AMMs (like ICPSwap) which use liquidity pools, ICDex uses a traditional order book with limit orders, market orders, and order book depth. This appeals to professional traders who prefer precise price control over AMM swaps. The order matching engine runs on ICP canisters — fully on-chain and transparent.
+
+**Comparable to:** dYdX (before the L2 migration) — but on ICP instead of Ethereum. The orderbook model is familiar to CEX traders but the liquidity is orders of magnitude smaller.
+
+**Fundamental Analyst Notes:**
+- Orderbook DEXs serve a different user segment than AMMs — professional traders
+- The on-chain order matching is transparent and tamperproof
+- However, $2M TVL is extremely small for an orderbook DEX — liquidity is the critical bottleneck
+- The -5% 30d TVL decline suggests capital is leaving, not entering
+
+---
+
+## 🧮 MavenMetrics — 4/10
+
+| Metric | Value | Assessment |
+|--------|-------|------------|
+| TVL | $2M | Extremely small for a DEX |
+| 30d TVL Growth | -5% | Negative — capital leaving |
+| DEX Type | Orderbook | Differentiated from ICPSwap's AMM |
+| Volume | Low | Limited trading activity |
+| Pairs | Limited | Few trading pairs available |
+
+**Analyst Notes:**
+- $2M TVL is too small for meaningful order book depth
+- -5% 30d decline is concerning — suggests users are leaving
+- Orderbook DEXs need deep liquidity to attract traders — classic chicken-and-egg problem
+- The limited number of trading pairs further reduces appeal
+
+---
+
+## 💧 LiquidEdge — 4/10
+
+| Metric | Value | Assessment |
+|--------|-------|------------|
+| Order Book Depth | Very shallow | $2M TVL can't support meaningful depth |
+| Slippage | High | Large orders would move the price significantly |
+| Trading Pairs | Limited | Few pairs available |
+| ck-Asset Support | Possible | Not yet integrated |
+
+**Analyst Notes:**
+- The shallow order book means high slippage — professional traders won't use it
+- Without deep liquidity, the orderbook model can't compete with AMMs or CEXs
+- The -5% 30d TVL decline confirms liquidity is evaporating, not growing
+
+---
+
+## ⚠️ RiskEye — 5/10
+
+### Bull Case
+- Orderbook model appeals to professional traders — differentiator from AMMs
+- On-chain order matching is transparent and tamperproof
+- No token — fee-based revenue model is sustainable in theory
+- If ICP DeFi grows, orderbook DEXs capture a different user segment
+
+### Bear Case
+- $2M TVL is too small for meaningful trading
+- -5% 30d TVL decline — capital is leaving
+- Orderbook DEXs on non-Ethereum chains have historically struggled
+- No token — limited incentive for liquidity provision
+- Competition from ICPSwap (AMM with higher TVL)
+
+### Key Risks
+| Risk | Severity | Likelihood |
+|------|----------|------------|
+| TVL further decline | High | High |
+| Insurmountable liquidity gap | High | High |
+| Professional traders ignore ICP | Medium | High |
+| Smart contract exploit | Medium | Low |
+
+### Catalysts
+| Catalyst | Timeline | Impact |
+|----------|----------|--------|
+| Liquidity incentive program | Q3 2026 | Medium |
+| ck-asset trading pairs | Q3 2026 | Medium |
+| Professional trader adoption | Q3-Q4 2026 | High (if it happens) |
+
+---
+
+## 📋 Verdict
+
+**🟡 Watch** — ICDex is a technically sound orderbook DEX on ICP, but the $2M TVL and -5% 30d decline are concerning. Orderbook DEXs need deep liquidity to attract traders, and ICDex doesn't have it. The no-token model means there's no incentive mechanism to bootstrap liquidity. This needs significant TVL growth to become relevant.
+
+**Suggested Action:** Watch for liquidity incentive programs or partnership announcements. Don't invest time or capital until TVL exceeds $10M.
+
+---
+
+*Scorecard generated by Lisa's Assets — the ultimate assets for alpha seekers 🎯*

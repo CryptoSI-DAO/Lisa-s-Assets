@@ -1,10 +1,10 @@
 /**
  * Lisa's Assets — Router
- * Simple hash router: #home, #tao, #eth, #hype
+ * Simple hash router: #home, #tao, #eth, #hype, #icp
  * Pages use .page class (display:none) or #page-home (default visible).
  */
 var Router = (() => {
-  const pages = ['home', 'tao', 'eth', 'hype'];
+  const pages = ['home', 'tao', 'eth', 'hype', 'icp'];
 
   function init() {
     window.addEventListener('hashchange', route);
@@ -19,6 +19,7 @@ var Router = (() => {
     document.getElementById('page-tao').setAttribute('aria-hidden', hash !== 'tao');
     document.getElementById('page-eth').setAttribute('aria-hidden', hash !== 'eth');
     document.getElementById('page-hype').setAttribute('aria-hidden', hash !== 'hype');
+    document.getElementById('page-icp').setAttribute('aria-hidden', hash !== 'icp');
 
     // Nav active state
     document.querySelectorAll('.nav-link[data-route]').forEach(l => {

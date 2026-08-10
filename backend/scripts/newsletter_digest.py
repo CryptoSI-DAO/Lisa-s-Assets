@@ -180,7 +180,7 @@ FROM (
            r.lisa_verdict,
            r.strongest_agent,
            to_char(r.created_at AT TIME ZONE 'UTC',
-                   'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') AS created_at,
+                   'YYYY-MM-DD"T"HH24:MI:SS.US"Z"') AS created_at,
            p.name,
            p.symbol,
            p.coingecko_id,
